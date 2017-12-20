@@ -1,0 +1,51 @@
+<!DOCTYPE  html>
+<!--cargamos nuestro modulo en la etiqueta html con ng-app-->
+<html lang="es" ng-app="app">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Seguimiento Inifed</title>
+        <link rel="icon" type="image/x-icon" href="public/assets/images/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <link href="public/assets/libs/mdl_lib/material.grey-light_blue.min.css" rel="stylesheet" />
+        <link href="public/assets/css/styles.css" rel="stylesheet" >
+        <!--PC-->
+        <link href='public/assets/css/pc.css' rel='stylesheet' type="text/css" 
+              media='screen and (min-width: 1001px) and (max-width: 2000px)' />
+        <!-- Movil -->
+        <link href="public/assets/css/movil.css" rel="stylesheet" type="text/css" 
+              media="only screen and (max-width:1000px)">
+        <!--<link href="public/assets/css/modules/main_styles.css" rel="stylesheet" type="text/css"/>-->
+        <link href="public/assets/css/modules/login.css" rel="stylesheet" type="text/css"/>
+        <link href="public/assets/css/modules/principal.css" rel="stylesheet" type="text/css"/>
+        <link href='public/assets/css/modules/detalleObra.css' rel='stylesheet' type="text/css" />
+    </head>
+    <body>
+        <!--Aquí se cargarán todas las vistas-->
+        <div ng-view ng-cloak></div>
+
+        <!--Libs-->
+        <script src="public/assets/libs/jquery/1.10.2/js/jquery.js"></script>
+        <script src="public/assets/libs/angular/1.5.5/angular.js"></script>
+        <script src="public/assets/libs/angular/1.5.5/angular-route.min.js"></script>
+        <script src="public/assets/libs/angular/1.5.5/angular-animate.min.js"></script>
+        <script src="public/assets/libs/angular/1.5.5/angular-messages.min.js"></script>
+        <script src="public/assets/libs/angular/1.5.5/angular-aria.min.js"></script>
+        <script src="public/assets/libs/angular/svg-assets-cache.js"></script>
+        <script src="public/assets/libs/mdl_lib/material.min.js"></script>
+        <script src="public/assets/libs/socketIO/js-ash.js"></script>
+
+        <!--App scripts-->
+        <script src="public/app/app.js"></script>
+        <script src="public/app/factories/factories.js"></script>
+        <script src="public/app/services/appModelServ.js"></script>
+        <script src="public/app/services/services.js"></script>
+        <script src="public/app/directives/directives.js"></script>
+        <script src="public/app/environment/environment.js"></script>
+        <script src="public/app/modules/login/loginCtrl.js"></script>
+        <script src="public/app/modules/home/homeCtrl.js"></script>
+        <script src="public/app/modules/obra/obraCtrl.js"></script>
+        <script src="public/app/modules/imagenes/imagenesCtrl.js"></script>
+    </body>
+</html>

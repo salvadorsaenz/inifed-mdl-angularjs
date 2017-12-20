@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": {
+        "idAsignacion": 14,
+        "idCCTTurno": 2920,
+        "claveCCT": "13DPR0200S",
+        "nombre": "INDEPENDENCIA",
+        "turno": "MATUTINO",
+        "nivel": "PREPARATORIA",
+        "estado": "EDO. MEX.",
+        "municipio": "TOLUCA",
+        "localidad": "TOLUCA",
+        "etps": [
+            {
+                "idEtapa": 1,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 2,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 3,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 4,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 5,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 6,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 7,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 8,
+                "color": "gris"
+            }
+        ]
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

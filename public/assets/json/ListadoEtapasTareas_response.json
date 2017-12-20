@@ -1,0 +1,93 @@
+{
+    "success": true,
+    "data": [
+        {
+            "idEtapa": 1,
+            "etapa": "PRELIMINARES",
+            "orden": 1,
+            "tareas": [
+                {
+                    "idTarea": 24,
+                    "nombre": "CALAS",
+                    "orden": "1.1",
+                    "porcentajeAcumulado": 14.5,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                },
+                {
+                    "idTarea": 25,
+                    "nombre": "PROYECTOS Y ESTUDIOS ESPECÍFICOS",
+                    "orden": "1.2",
+                    "porcentajeAcumulado": 20.7,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                },
+                {
+                    "idTarea": 26,
+                    "nombre": "Tarea agregada",
+                    "orden": "1.3",
+                    "porcentajeAcumulado": 7.0,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                }
+            ]
+        },
+        {
+            "idEtapa": 2,
+            "etapa": "ESTRUCTURA",
+            "orden": 2,
+            "tareas": [
+                {
+                    "idTarea": 27,
+                    "nombre": "EXCAVACIÓN",
+                    "orden": "2.1",
+                    "porcentajeAcumulado": 60.0,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                },
+                {
+                    "idTarea": 28,
+                    "nombre": "ELEMENTOS HORIZONTALES",
+                    "orden": "2.2",
+                    "porcentajeAcumulado": 80,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                }
+            ]
+        },
+        {
+            "idEtapa": 3,
+            "etapa": "LIMPIEZAS",
+            "orden": 3,
+            "tareas": [
+                {
+                    "idTarea": 29,
+                    "nombre": "MUROS",
+                    "orden": "3.1",
+                    "porcentajeAcumulado": 34.0,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                },
+                {
+                    "idTarea": 30,
+                    "nombre": "Nuevo Campo",
+                    "orden": "3.2",
+                    "porcentajeAcumulado": 29.8,
+                    "idSemana": 5,
+                    "semana": 1,
+                    "fechas": "del 16/12/2017 al 22/12/2017"
+                }
+            ]
+        }
+    ],
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

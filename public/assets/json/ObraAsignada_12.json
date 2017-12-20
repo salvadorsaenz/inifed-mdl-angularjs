@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": {
+        "idAsignacion": 12,
+        "idCCTTurno": 2910,
+        "claveCCT": "17DPR0218U",
+        "nombre": "20 DE NOVIEMBRE",
+        "turno": "MATUTINO",
+        "nivel": "PRIMARIA",
+        "estado": "MORELOS",
+        "municipio": "TEPALCINGO",
+        "localidad": "TEPALCINGO",
+        "etps": [
+            {
+                "idEtapa": 1,
+                "color": "verde"
+            },
+            {
+                "idEtapa": 2,
+                "color": "amarillo"
+            },
+            {
+                "idEtapa": 3,
+                "color": "rojo"
+            },
+            {
+                "idEtapa": 4,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 5,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 6,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 7,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 8,
+                "color": "gris"
+            }
+        ]
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

@@ -1,0 +1,9 @@
+{
+	"idObra": "obra1",
+	"idTarea": "tarea32",
+	"avanceSemanal": "35",
+	"textoReporte": "Se tuvo el avance tal por cual",
+	"imagenes": [
+		"imagen1", "imagen3", "imagen4" 
+	]
+}

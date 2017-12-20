@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "data": [
+        {
+            "idAsignacion": 14,
+            "idCCTTurno": 2920,
+            "claveCCT": "13DPR0200S",
+            "descripcion": "INDEPENDENCIA | TOLUCA, EDO. MEX."
+        },
+        {
+            "idAsignacion": 15,
+            "idCCTTurno": 2925,
+            "claveCCT": "11DPR0099A",
+            "descripcion": "JUÁREZ BENEMÉRITO | TORREÓN, COAHUILA"
+        }
+    ],
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+
+}

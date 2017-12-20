@@ -1,0 +1,106 @@
+/*
+    Hoja de estilos para la sección principal
+*/
+/* 
+    Created on : 11/12/2017, 03:47:15 PM
+    Author     : CliqueFlow
+*/
+
+/*Generales*/
+.header{
+    background: white;
+    overflow: hidden;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
+}
+.menuIcon{
+    position: absolute;
+    left: 2%;
+    padding: 7px;
+    width: 42px;
+}
+.menuSide{
+
+}
+/*Header Menú*/
+.text_gray{
+    color: #666666;
+}
+.text_dark{
+    color: #333333;
+}
+.encabezadoMenu{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6e6e6+0,b3b3b3+100 */
+    background: rgb(230,230,230); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(179,179,179,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(230,230,230,1) 0%,rgba(179,179,179,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(230,230,230,1) 0%,rgba(179,179,179,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#b3b3b3',GradientType=0 ); /* IE6-9 */
+    padding: 6%;
+}
+.encabezadoMenu > label, .encabezadoMenu > span{
+    font-family: 'Open Sans';
+}
+#sp-page{
+    background: #E6E6E6;
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.3;
+    z-index: 99;
+    display: none;
+}
+/*Content Menú*/
+.contenMenu{
+    padding: 3%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.contenMenu > .submenuTitle{
+    padding-top: 5%;
+    padding-bottom: 5%; 
+    font-family: 'Open Sans';
+    font-size: 1.2em;
+}
+.titleUl{
+    font-family: 'Open Sans';
+    font-size: 1.2em;
+}
+.detailIl{
+    font-family: 'Open Sans';
+    font-size: 0.9em;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: 0px solid #ddd;
+}
+a.list-group-item, button.list-group-item {
+    color: #555;
+    border-bottom: solid 2px #ccc;
+    line-height: 28px;
+}
+.closeSide {
+   padding: 5px !important; 
+}
+.closeSide > a{
+    color: #0F998F !important;
+    font-family: 'Open Sans';
+    font-size: 1.2em;
+    padding: 5px !important;
+}

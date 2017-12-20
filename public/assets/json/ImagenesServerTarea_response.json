@@ -1,0 +1,18 @@
+[
+	{
+		"idImagen": "imagen1", 
+		"base64": "http://ia.com.mx/01_22_CIM_T17.jpg"
+	}, 
+	{
+		"idImagen": "imagen2", 
+		"base64": "http://ia.com.mx/01_22_CIM_T18.jpg"
+	},
+	{
+		"idImagen": "imagen4", 
+		"base64": "http://ia.com.mx/01_22_CIM_T19.jpg"
+	},
+	{
+		"idImagen": "imagen4", 
+		"base64": "http://ia.com.mx/01_22_CIM_T20.jpg"
+	}
+]

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "data": {
+        "idUsuario": 1,
+        "code": 1,
+        "msg": "ok",
+        "recordId": 0,
+        "httpStatus": 0
+    }
+}

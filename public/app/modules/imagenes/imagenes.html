@@ -1,0 +1,188 @@
+
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <div style="width: 90%;">
+                <img class="img-seguimiento img-center-in-div" src="public/assets/images/logos/seguimiento_proyectos.jpg">
+            </div>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="" ng-click="logout();">Salir</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <div class="mdl-grid menu-arquitectura" style="height: 25%;">
+            <div style="width: 95%; height: 80%;">
+                <img class="img-arquitectura img-center-in-div" data-ng-src="{{userData.base64}}">
+                <p class="etiquetas" style="width: 100%; text-align: center;">{{userData.nombreEmpresa}}</p>
+            </div>
+            <div style="width: 100%; height: 20%;">
+                <p class="etiquetas" style="width: 100%; text-align: center;">Usuario: <span style="color: black;">{{userData.nombreCompletoUsuario}}</span></p>
+            </div>
+        </div>
+        <div style="height: 55%; padding: 10px;">
+            <div style="padding-bottom: 20px;">Obras Asignadas</div>
+            <div style="width: 100%; height: 100%; overflow: auto;">
+                <div class="div-obra-asignada" ng-repeat="obra in obrasAsignadas">
+                    <p class="etiqueta-clave-obra">{{obra.clave}}</p>
+                    <p class="etiquetas">{{obra.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="" ng-click="logout();">Salir</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+            <main class="mdl-layout__content">
+                <div class="demo-content mdl-color--white mdl-shadow--4dp mdl-color-text--grey-800 mdl-cell mdl-cell--12-col">
+                    <div>
+                        <button ng-click="guardar();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Guardar</button>
+                    </div>
+
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[0].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[0].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_0" name="archivo_0" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[0].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[0].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[0].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[1].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[1].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_1" name="archivo_1" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[1].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[1].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[1].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[2].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[2].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_2" name="archivo_2" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[2].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[2].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[2].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[3].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[3].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_3" name="archivo_3" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[3].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[3].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[3].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[4].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[4].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_4" name="archivo_4" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[4].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[4].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[4].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="imagenes[5].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="imagenes[5].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_5" name="archivo_5" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="imagenes[5].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{imagenes[5].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{imagenes[5].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </main>
+    <footer class="mdl-mini-footer">
+        <div style="width: 50%; float: left;">
+            <img class="img-grupo-ia-footer" src="public/assets/images/logos/grupo_ia.jpg">
+        </div>
+        <div style="width: 50%; float: left;">
+            <img class="img-agendas-footer" src="public/assets/images/logos/agendas.jpg">
+        </div>
+    </footer>
+</div>

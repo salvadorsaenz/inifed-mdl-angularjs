@@ -1,0 +1,661 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3/10/2017, 06:44:54 PM
+    Author     : jbahena
+*/
+.btn_white{
+    background: linear-gradient(to right, rgba(231,231,231,1) 0%,rgba(255,255,255,1) 100%) !important;
+    color: rgba(100, 101, 105, 1) !important;
+    font-family: 'muliregular';
+    font-weight: bold;
+    padding: 0.7em 0 0.7em 0;
+    border-radius: 7px;    
+}
+
+.height100{
+    height: 100%;
+}
+
+.mini-entidad{
+    height: 100px;
+    margin-top: -35px;
+    width: 250px;
+    float: left;
+    display: block;
+    position: fixed;
+}
+
+.mini-entidad .imagen{
+    height: 55px;
+    text-align: left;
+    float: left;
+    width: 45%;
+}
+.mini-entidad .imagen img{
+    height: 100%;
+    margin-left: 15px;
+}
+
+.mini-entidad .text-imagen{
+    width: 50%;
+    float: left;
+    text-align: left;
+    /* position: fixed; */
+    align-items: center;
+    display: inline-flex;
+    height: 50px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #666;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.mini-entidad .body-estados{
+    opacity: 1;
+}
+
+.mini-entidad .body-estados .detalles{
+    width: 90%;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.mini-entidad .body-estados .etiqueta{
+    width: 70%;
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    float: left;
+    margin-bottom: 3px;        
+    background: rgb(152,0,0);
+    background: -moz-linear-gradient(left, rgba(152,0,0,1) 1%, rgba(181,71,72,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(152,0,0,1) 1%,rgba(181,71,72,1) 100%);
+    background: linear-gradient(to right, rgba(152,0,0,1) 1%,rgba(181,71,72,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#980000', endColorstr='#b54748',GradientType=1 );
+}
+
+.mini-entidad .body-estados .cuenta{
+    width: 30%;
+    display: inline-block;
+    background-color: #666666;
+    text-align: right;
+    padding-right: 0px;
+    font-size: 12px;
+    float: left;
+}
+.mini-entidad .cuenta:after{
+    right: 96%;
+    top: 4px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: relative;
+    pointer-events: none;
+    border-color: rgba(14, 78, 103, 0);
+    border-right-color: #666666;
+    border-width: 8px;
+    margin-top: -8px;
+    display: inline-block;
+}
+.miniaturas-estados{
+    border: white solid 1px;
+    padding: 0px;
+/*    overflow-y: auto;*/
+/*    min-height: 60px;
+    max-height: 604px;*/
+    width: 250px;
+    float: left;
+    margin-top: 70px;
+}
+
+.miniaturas-estados .titulo{
+    background-color: white;
+    color: rgba(102, 103, 107, 1);
+    font-weight: bold;
+    font-size: 17px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.miniaturas-estados .imagen{
+    height: 145px;
+    text-align: center;
+}
+
+.miniaturas-estados .imagen div{
+    text-align: center;
+    text-transform: uppercase;
+    top: -77px;
+    position: relative;
+}
+.miniaturas-estados .imagen img{
+    height: 100%;
+    margin: auto;
+}
+
+.miniaturas-estados .body-estados{
+    opacity: 0.3;
+}
+.body-estados-claro{
+    opacity: 1;
+}
+
+.miniaturas-estados .body-estados .detalles{
+    width: 90%;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+
+.miniaturas-estados .body-estados .etiqueta{
+    width: 69%;
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    float: left;
+    margin-bottom: 3px;
+    height: 20px;
+    background: rgb(152,0,0);
+    background: -moz-linear-gradient(left, rgba(152,0,0,1) 1%, rgba(181,71,72,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(152,0,0,1) 1%,rgba(181,71,72,1) 100%);
+    background: linear-gradient(to right, rgba(152,0,0,1) 1%,rgba(181,71,72,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#980000', endColorstr='#b54748',GradientType=1 );
+}
+.metaData_min{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#005c99+0,002e4d+100 */
+    background: rgb(0,92,153); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(0,92,153,1) 0%, rgba(0,46,77,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0,92,153,1) 0%,rgba(0,46,77,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0,92,153,1) 0%,rgba(0,46,77,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c99', endColorstr='#002e4d',GradientType=1 ); /* IE6-9 */
+    color: white;
+    font-family: 'Century';
+    font-size: 1em;
+    text-align: right;
+    padding: 9px;
+}
+.dataInput_min > input{
+    width: 100%;
+    background: #CCCCCC;
+    border: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    padding: 9px;
+    font-family: 'Century';
+    font-size: 1em;
+}
+.dataInput_min > input:focus{
+    background: #FFF;
+}
+.miniaturas-estados .body-estados .cuenta{
+    width: 30%;
+    display: inline-block;
+    background-color: #666666;
+    text-align: right;
+    padding-right: 0px;
+    /* float: left; */
+    font-size: 14px;
+
+}
+.miniaturas-estados .body-estados .cuenta:after{
+    right: 96%;
+    top: 4px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: relative;
+    pointer-events: none;
+    border-color: rgba(14, 78, 103, 0);
+    border-right-color: #666666;
+    border-width: 8px;
+    margin-top: -8px;
+    display: inline-block;
+}
+
+.miniaturas-estados .seleccionado {
+    opacity: 1;
+}
+.lista-localidades{
+    background: rgba(126,203,183,1) !important;
+}
+/*----------*/
+.body-municipios{
+    border: none;
+    overflow-y: auto;
+    min-height: 50px;
+    max-height: 500px;
+}
+.body-municipios .lista{
+    background: rgba(142, 144, 143, 1);
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 10;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+}
+
+.body-municipios .lista:hover{
+    background: rgba(0,147,133, 0.3);
+    cursor: pointer;
+    color: #ffffff;
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+.body-municipios .lista .item{
+    margin: 0;
+    padding: 0em 0 0em 0em;
+    height: 50px;
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+
+}
+.body-municipios .lista .item:hover{
+    background: rgba(0,147,133, 0.3);
+    cursor: pointer;
+    color: #ffffff;
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+.body-municipios .lista .item.seleccionado{
+    background-color: rgba(1, 152, 117, 1);
+}
+.body-municipios .detalles{
+    width: 25%;
+    /* display: inline-block; */
+    /* margin: auto; */
+    color: white;
+    font-weight: bold;
+    /* margin-bottom: 5px; */
+    float: right;
+}
+
+
+.body-municipios .nombre{
+    width: 71%;
+    /* display: inline-block; */
+    /* background-color: red; */
+    text-align: left;
+    float: left;
+    padding-left: 15px;
+    /*    padding-top: 10px;*/
+    line-height: 14px;
+}
+
+.body-municipios .cuenta{
+    width: 100%;
+    display: block; 
+    /*background-color: #666666;*/
+    text-align: right;
+    padding-right: 10px;
+    height: 24px;
+    background: rgb(155,6,4);
+    background: -moz-linear-gradient(left, rgba(155,6,4,1) 0%, rgba(152,73,60,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(155,6,4,1) 0%,rgba(152,73,60,1) 100%);
+    background: linear-gradient(to right, rgba(155,6,4,1) 0%,rgba(152,73,60,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b0604', endColorstr='#98493c',GradientType=1 );
+}
+.body-municipios .cuenta:after{
+    right: 96%;
+    top: 25%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: relative;
+    pointer-events: none;
+    border-color: rgba(14, 78, 103, 0);
+    border-right-color: rgba(152, 0, 0, 1);
+    border-width: 8px;
+    margin-top: -8px;
+    display: inline-block;
+}
+.body-municipios .cuenta:last-child:after{    
+    border-right-color: rgba(205,51,1,1);    
+}
+.botonera-general{
+    width: 200px;
+    position: absolute;
+    bottom: 65px;
+    left: 15px;
+}
+
+.botonera-general .btn{
+    margin-bottom: 15px
+}
+
+
+#mapCanvas{
+    width: 1606px;
+    height: 885px;
+    /*background-color: red;*/
+    float: left;
+    margin: 10px;
+    top: -10px;
+}
+
+#crear_ui{
+    width: 93%;
+    margin: auto;
+    float: none;
+}
+
+.main_crear .caja{
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.3);
+    min-height: 100px;
+    background-color: #f1ecec;
+    margin-bottom: 25px;
+    padding: 12px;
+
+}
+.main_crear .caja_transparente{    
+    min-height: 100px;    
+    margin-bottom: 25px;
+    padding: 12px;
+}
+
+.main_crear .caja.general{
+    height: 42%;
+}
+.main_crear .caja.basica{
+    height: 42%;
+}
+.main_crear .caja.basica2{
+    height: 31.5%;
+}
+.main_crear .caja.descripcion{
+    height: 15%;
+    margin-bottom: 100%;
+}
+.main_crear .caja.ubicacion{
+    height: 400px;
+}
+.main_crear .caja.testimonios{
+    height: 43%;
+    margin-bottom: 12px;
+}
+.main_crear .caja.reporte{
+    height: 43%;
+}
+
+.main_crear .caja .titulo,
+.main_crear .titulo,
+.main_crear .caja_transparente .titulo{
+    font-size: 24px;
+    color:#9A9A9A;
+    font-weight: bold;
+}
+
+.main_crear .caja .cuerpo,
+.main_crear .caja_transparente .cuerpo{
+    padding: 6px;
+    text-transform: uppercase;
+}
+
+
+.main_crear .caja .cuerpo-fondo,
+.main_crear .caja_transparente .cuerpo-fondo{
+    height: 210px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+40,000000+60,000000+100&0+0,0.48+40,0.48+60,0+100 */
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.48) 40%, rgba(0,0,0,0.48) 60%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 40%,rgba(0,0,0,0.48) 60%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.48) 40%,rgba(0,0,0,0.48) 60%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+.main_crear .caja .cuerpo.cuerpo-carousel,
+.main_crear .caja_transparente .cuerpo.cuerpo-carousel{
+    width: 80%;
+    margin: auto;
+
+}
+
+.main_crear .caja .cuerpoGris{
+    background-color: #DADADA;    
+    height: 80%;
+    padding: 5px;
+}
+
+.main_crear .caja .cuerpo .atributo {
+    color: #019774;
+
+}
+
+.main_crear .caja .cuerpo .valor {
+
+}
+
+.caja .tabla-detalle .fila-ent td:nth-child(1) {
+    color: #019774;
+}
+.caja .tabla-detalle .cabecera{
+    margin-bottom: 5px;
+}
+.caja .tabla-detalle .fila-ent .rTableCell:nth-child(1) {
+    color: #019774;
+}
+.caja .tabla-detalle .fila-ent .green{
+    color: #019774;
+}
+.main_crear .caja .cuerpo.list-fechas{
+    height: 95%; 
+    max-height: 95%; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+.main_crear .caja .cuerpo.list-fechas .renglon{
+    border: solid 1px #309276; 
+    /*height: 20%;*/ 
+    display: flex;
+}
+.main_crear .caja .cuerpo.simpleFecha{
+    border: solid 1px #309276; 
+    height: 85%;
+}
+
+.caja .item_image img,
+.caja_transparente .item_image img{
+    height: 168px;
+    width: auto;
+}
+
+.arrow_back, .arrow_fwd{   
+    font-family: 'fontello';
+    width: 2em;
+    height: 2em;
+    font-size: 6em;
+    position: absolute;
+    top: 0.5em;
+    /* left: -0.7em; */
+    color: #9a9a9a;
+    font-weight: bold;
+    opacity: 1.0;
+}
+
+.rTable {   	
+    display: table;   
+    border-collapse: separate;
+    width: 100%; 
+} 
+.rTableRow {   	
+    display: table-row; 
+    width: 100%;
+} 
+.rTableHeading {   	
+    display: table-header-group;   	
+    background-color: #ddd; 
+} 
+
+.rTableHead {   	
+    width: 100%;
+    padding: 0px 0px 10px 0px;
+}
+
+.rTableCell, .rTableHead {   	
+    display: table-cell;   
+    table-layout: fixed;
+/*    padding: 3px 10px;   	
+    border: 1px solid #999999; */
+} 
+.rTableHeading {   	
+    display: table-header-group;   	
+    background-color: #ddd;   	
+    font-weight: bold; 
+} 
+.rTableFoot {   	
+    display: table-footer-group;   	
+    font-weight: bold;   	
+    background-color: #ddd; 
+} 
+.rTableBody {   	
+    display: table-row-group; 
+}
+
+.caja .cuerpo .generales:nth-child(1)
+{    
+    margin-bottom: 10px;
+}
+.caja .cuerpo .tabla-detalle {
+    margin-bottom: 10px;
+}
+.caja .cuerpo .tabla-detalle:last-child {
+    margin-top: 10px;
+}
+.caja .cuerpo .tabla-detalle tr:nth-child(1)
+{
+    margin-bottom: 10px;
+}
+
+.owl-carousel  .owl-item{
+    margin: 0px 15px;
+}
+.owl-carousel  .owl-item .img-descripcion{
+    text-align: center;
+    font-size: 10px;    
+}
+
+.owl-theme .owl-controls .owl-buttons div{
+    background: transparent!important;
+}
+
+.owl-carousel .owl-wrapper-outer{
+    padding-top: 10px;
+}
+
+/**[*[[*[*[*[*[*[]]]]]]]]}*/
+.mini-entidad .body-estados .etiquetaOrange,
+.miniaturas-estados .body-estados .etiquetaOrange,
+.body-municipios .etiquetaOrange{
+    background: rgb(205,51,1);
+    background: -moz-linear-gradient(left, rgba(205,51,1,1) 0%, rgba(156,131,64,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(205,51,1,1) 0%,rgba(156,131,64,1) 100%);
+    background: linear-gradient(to right, rgba(205,51,1,1) 0%,rgba(156,131,64,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd3301', endColorstr='#9c8340',GradientType=1 );
+}
+
+/******/
+.lst-nomenclatura{
+    width: 1606px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    bottom: 3%;
+    right: 2%;        
+}
+.lst-nomenclatura .fila{
+    width: 20%;
+    float: right;
+    padding: 5px;
+}
+.lst-nomenclatura .fila .color{
+    width: 30px;
+    height: 30px;
+    float: left;
+    align-items: center;
+    display: inline-flex;
+    border: solid 1px #FFFFFF;
+}
+.lst-nomenclatura .fila .valor{
+    width: 70%;
+    height: 30px;
+    float: left;
+    padding-left: 15px;      
+    align-items: center;
+    display: inline-flex;
+/*    text-transform: uppercase;*/
+    color: #FFFFFF;
+    font-family: 'TrajanPro-Regular';
+}
+
+/*++++++++++++++++++++++*/
+.bandeja-ccts{
+    position: fixed;
+    left: 14%;
+    z-index: 1;
+    top: 18%;
+}
+
+
+/*::::::::botones final detalle*/
+.btn-fin-verde{
+    border: solid 2px #309276; 
+    width: 100%;
+}
+.btn-fin-naranja{
+    border: solid 2px #CC6600; 
+    width: 100%;
+}
+.btn-fin-rojo{
+    border: solid 2px #C40000; 
+    width: 100%;
+}
+
+/**/
+.rwAccount{
+    position: absolute;
+    top: 6.5%;
+    right: 0.91%;
+    width: 100%;
+}
+.fail-login{
+    text-transform: uppercase;
+    position: absolute;
+    top: -10%;
+    height: 7%;
+    width: 80%;
+    text-align: center;
+    font-size: 1.2em;
+    color: #333333;
+}
+
+.es-obligatorio{
+    border: solid 1px rgb(255,0,0)!important;
+    background-color: #E6E6E6!important;
+    /*width: 93%;*/
+    width: 44%;
+    float: left;
+}
+.es-obligatorio > .selectize-input{
+    width: 100%;
+    float: left;
+}

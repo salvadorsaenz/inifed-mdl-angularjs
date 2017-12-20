@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": {
+        "idAsignacion": 15,
+        "idCCTTurno": 2925,
+        "claveCCT": "11DPR0099A",
+        "nombre": "JUÁREZ BENEMÉRITO",
+        "turno": "VESPERTINO",
+        "nivel": "UNIVERSIDAD",
+        "estado": "COAHUILA",
+        "municipio": "TORREÓN",
+        "localidad": "TORREÓN",
+        "etps": [
+            {
+                "idEtapa": 1,
+                "color": "rojo"
+            },
+            {
+                "idEtapa": 2,
+                "color": "rojo"
+            },
+            {
+                "idEtapa": 3,
+                "color": "rojo"
+            },
+            {
+                "idEtapa": 4,
+                "color": "amarillo"
+            },
+            {
+                "idEtapa": 5,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 6,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 7,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 8,
+                "color": "gris"
+            }
+        ]
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

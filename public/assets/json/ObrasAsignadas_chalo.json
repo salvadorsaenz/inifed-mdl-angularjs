@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "data": [
+        {
+            "idAsignacion": 12,
+            "idCCTTurno": 2910,
+            "claveCCT": "17DPR0218U",
+            "descripcion": "20 DE NOVIEMBRE | TEPALCINGO, MORELOS"
+        },
+        {
+            "idAsignacion": 13,
+            "idCCTTurno": 2915,
+            "claveCCT": "17DPR0078K",
+            "descripcion": "LUIS DONALDO COLOSIO | XOCHITEPEC, MORELOS"
+        }
+    ],
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+
+}

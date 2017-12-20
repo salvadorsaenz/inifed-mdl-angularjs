@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "data": {
+        "idAsignacion": 13,
+        "idCCTTurno": 2915,
+        "claveCCT": "17DPR0078K",
+        "nombre": "LUIS DONALDO COLOSIO",
+        "turno": "VESPERTINO",
+        "nivel": "SECUNDARIA",
+        "estado": "MORELOS",
+        "municipio": "XOCHITEPEC",
+        "localidad": "XOCHITEPEC",
+        "etps": [
+            {
+                "idEtapa": 1,
+                "color": "verde"
+            },
+            {
+                "idEtapa": 2,
+                "color": "verde"
+            },
+            {
+                "idEtapa": 3,
+                "color": "rojo"
+            },
+            {
+                "idEtapa": 4,
+                "color": "verde"
+            },
+            {
+                "idEtapa": 5,
+                "color": "amarillo"
+            },
+            {
+                "idEtapa": 6,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 7,
+                "color": "gris"
+            },
+            {
+                "idEtapa": 8,
+                "color": "gris"
+            }
+        ]
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

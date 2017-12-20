@@ -1,0 +1,348 @@
+/*
+    Hoja de estilos para el detalle de Obra
+*/
+/* 
+    Created on : 11/12/2017, 11:36:34 PM
+    Author     : CliqueFlow
+*/
+.header-blue {
+    background: #0B4A73;
+    color: white;
+    width: 100%;
+    height: 50px;
+}
+.header-blue > div {
+    float: left;
+    height: 100%;
+}
+.atrasIcon{
+    padding: 7px;
+    width: 20px;
+}
+.infoIcon{
+    padding: 6px;
+    width: 25px;
+}
+.float-right{
+    float: right;
+}
+.cctTitle{
+    padding: 0% 0%;
+}
+.padd0{
+    padding: 0px;
+}
+.align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.indicador {
+    padding-top: 8px;
+    height: 32px;
+}
+.indicador-rojo {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1272d+0,990f15+100 */
+    background: rgb(193,39,45); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(193,39,45,1) 0%, rgba(153,15,21,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(193,39,45,1) 0%,rgba(153,15,21,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(193,39,45,1) 0%,rgba(153,15,21,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1272d', endColorstr='#990f15',GradientType=0 ); /* IE6-9 */
+}
+.indicador-verde {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8cc63f+1,009245+100 */
+    background: rgb(140,198,63); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(140,198,63,1) 1%, rgba(0,146,69,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(140,198,63,1) 1%,rgba(0,146,69,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(140,198,63,1) 1%,rgba(0,146,69,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cc63f', endColorstr='#009245',GradientType=0 ); /* IE6-9 */
+}
+.indicador-amarillo {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcee21+0,fbb03b+100 */
+    background: rgb(252,238,33); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(252,238,33,1) 0%, rgba(251,176,59,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(252,238,33,1) 0%,rgba(251,176,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(252,238,33,1) 0%,rgba(251,176,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcee21', endColorstr='#fbb03b',GradientType=0 ); /* IE6-9 */
+}
+.indicador-gris {
+    background: #B3B3B3;
+}
+.lineInd {
+    width: 6px;
+    height: 32px;
+    margin-left: 2px;
+    float: left;
+}
+.menuBottom {
+    position: relative;
+    background: #F2F2F2;
+    box-shadow: 1px 1px 13px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-bottom: solid 2px #0F6299;
+}
+.menuBottom > div{
+    width: 30%;
+    float: left;
+    position: relative;
+}
+.menuBottom > div > img{
+    height: 40px;
+}
+.menuBottom > .item{
+    padding: 15px 5px;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    text-align: center;
+}
+.menuBottom > .item.active{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1272d+0,990f15+100 */
+    background: rgb(193,39,45); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(193,39,45,1) 0%, rgba(153,15,21,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(193,39,45,1) 0%,rgba(153,15,21,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(193,39,45,1) 0%,rgba(153,15,21,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1272d', endColorstr='#990f15',GradientType=0 ); /* IE6-9 */
+}
+.menuBottom > .item.selected{
+    background: #0F998F;
+}
+.circleIndicator{
+    border: solid 2px #FFF;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    color: white;
+    position: absolute;
+    right: 11px;
+}
+/*Juego de botones y selección*/
+/*Alerta*/
+.alertOpt.active, .alertOpt.selected{
+    color: white;
+}
+.alertOpt.active > .iconAlertOpet, .alertOpt.selected > .iconAlertOpet{
+    background-image: url("../../../assets/images/svg/alertMenu.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.alertOpt{
+    color: #0F998F;
+}
+.alertOpt.active> .circleIndicator, .alertOpt.selected> .circleIndicator{
+    color: white;
+    border: solid 2px white;
+}
+.alertOpt > .circleIndicator{
+    color: #0F998F;
+    border: solid 2px #0F998F;
+}
+.alertOpt > .iconAlertOpet{
+    background-image: url("../../../assets/images/svg/alert.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+/*Gestor*/
+.gestorOpt.active, .gestorOpt.selected{
+    color: white;
+}
+.gestorOpt.active > .icongestorOpt, .gestorOpt.selected > .icongestorOpt{
+    background-image: url("../../../assets/images/svg/gestorBottom.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.gestorOpt{
+    color: #0F998F;
+}
+.gestorOpt.active> .circleIndicator, .gestorOpt.selected> .circleIndicator{
+    color: white;
+    border: solid 2px white;
+}
+.gestorOpt > .circleIndicator{
+    color: #0F998F;
+    border: solid 2px #0F998F;
+}
+.gestorOpt > .icongestorOpt{
+    background-image: url("../../../assets/images/svg/gestorMenu.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+/*Gestor de imagen*/
+.gestorImagenOpt.active, .gestorImagenOpt.selected{
+    color: white;
+}
+.gestorImagenOpt.active > .icongestorImagenOpt, .gestorImagenOpt.selected > .icongestorImagenOpt{
+    background-image: url("../../../assets/images/svg/gestorimagenBottom.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.gestorImagenOpt{
+    color: #0F998F;
+}
+.gestorImagenOpt.active> .circleIndicator, .gestorImagenOpt.selected> .circleIndicator{
+    color: white;
+    border: solid 2px white;
+}
+.gestorImagenOpt > .circleIndicator{
+    color: #0F998F;
+    border: solid 2px #0F998F;
+}
+.gestorImagenOpt > .icongestorImagenOpt{
+    background-image: url("../../../assets/images/svg/gestorimagenMenu.svg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.wrapperContentVentana{
+    box-shadow: 1px 1px 13px rgba(0,0,0,0.5);
+    width: 86%;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 6%;
+    position: absolute;
+    z-index: 999;
+    left: 7%;
+    background: #F2F2F2;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    padding: 4%;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .05);
+    box-shadow: 0 0px 0px rgba(0, 0, 0, .05);
+}
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #F2F2F2;
+    border-color: #F2F2F2;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #ddd;
+    background: #f2f2f2;
+}
+.panel-group .panel-heading + .panel-collapse > .panel-body, .panel-group .panel-heading + .panel-collapse > .list-group {
+    border-top: 0px solid #ddd;
+}
+.panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.obra-logos-centro {
+    width: 50%; 
+    float: left; 
+    text-align: center;
+}
+.tarjeta {
+    position: relative;
+    width: 95%;
+    height: 430px;
+    margin: 10px auto;
+}
+.tarjeta-gestores {
+    background-color: #e6e6e6;
+    padding: 15px;
+}
+
+/*Carga de imágenes*/
+.mdl-grid-sin-padding {
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+}
+.div-carga-imagen {
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+.button-add-file {
+    border: 2px dashed #ddd;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.button-add-icon {
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100px;
+    font-size: 40px;
+    color: #12988d;
+}
+.imagen-standby {
+    background: #e6e6e6;
+    border: 2px solid #e6e6e6;
+}
+.imagen-cargada {
+    width: 100%;
+    height: 100px;
+}
+.nombre-imagen-cargada {
+    position: absolute;
+    top: 75px;
+    left: 5px;
+    width: 100%;
+    color: lightgray;
+    font-size: 10px;
+}
+.div-encabezado-imagenes > div {
+    width: 50%;    
+    height: 35px;
+}
+.etapa {
+    height: 40px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+}
+.etapa:nth-child(1) {
+    border-top: 1px solid rgba(128, 128, 128, 0.39);
+}
+.div-tareas div {
+    float: left;
+    height: 40px;
+}
+.tarjeta-reportes {
+    background-color: #f2f2f2;
+    padding: 15px;
+}
+.tarjeta-reportes > div {
+    
+}
+.texto-semanas {
+    float: left;
+    font-size: 11px;
+    text-align: right;
+    line-height: 15px;
+    margin-bottom: 0px;
+}

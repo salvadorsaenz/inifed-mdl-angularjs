@@ -1,0 +1,144 @@
+/*------------------------------------------------------------------------------*/
+/*------------------------------- General --------------------------------------*/
+/*------------------------------------------------------------------------------*/
+#login{
+    font-size: 16px;
+}
+#login > .headLogo{ 
+    padding: 5%;
+    overflow: hidden;
+}
+section{
+    clear: both;
+}
+/*----------------------------------------------------------------------------*/
+/*------------------------------- Login --------------------------------------*/
+/*----------------------------------------------------------------------------*/
+.inifed, .sep{
+    max-height: 44px;
+    margin: 12px;
+    margin: 0 auto;
+}
+.title, .subtitle{
+    color: #999999;
+    font-family: 'TrajanPro-Regular';
+    font-size: 1.2em;
+    /*padding: 2% 8%;*/
+}
+.subtitle{
+    color: #0B4A73;
+}
+.subtitle > span{
+    font-size: 0.8em;
+    display: block;
+}
+.titleLogin{
+    font-family: 'Open Sans';
+    font-size: 0.9em;
+    color: #666666;
+}
+.scrollLogin{
+    overflow: hidden;
+    overflow-y: auto;
+}
+.contentWrapper, form{
+    overflow: hidden;
+}
+form > div > input{
+    max-width: 250px;
+    margin: 0 auto;
+}
+.inputText{
+    background: transparent;
+    border: none;
+    border-bottom: solid 2px #0F998F!important;
+    font-family: 'Open Sans';
+    font-size: 1em;
+    box-shadow: none;
+    margin-bottom: 15px; 
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+:focus {
+    outline: -webkit-focus-ring-color auto 0px!important;
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6)!important;
+}
+.btn{
+    padding: 9px 36px!important;
+}
+.btn-default{
+    background: #999999;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    text-transform: uppercase;
+    border: none;
+    color: white;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.btn-default:hover, .btn-default:active,.btn-default:focus, .btn-default:visited{
+    color: white;
+    background: #0F998F;
+    border: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+button {
+    position: relative;
+    display: block;
+    width: 13em;
+    height: 3em;
+    margin: 2em;
+    border: none;
+    outline: none;
+    letter-spacing: .2em;
+    font-weight: bold;
+    background: #dfdfdf;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 2px;
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(0,0,0,.25);
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.ripple.show {
+    -webkit-animation: ripple .5s ease-out;
+    animation: ripple .5s ease-out;
+}
+@-webkit-keyframes 
+ripple { 
+    to {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+@keyframes 
+ripple { 
+    to {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
