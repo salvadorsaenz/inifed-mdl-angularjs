@@ -29,8 +29,12 @@ function loginCtrl($scope, appModelServ, consultarPost, appServices, environment
                 
             } else {
                 // CambiarNombreServicio
-                appModelServ.user.password = patify(appModelServ.user.password);
-                promise = consultarPost(appModelServ.user, 'acceso/login');
+                $scope.user.password = patify($scope.user.password);
+                var credenciales = {
+                    usuario: $scope.user.usuario,
+                    password: $scope.user.password
+                };
+                promise = consultarPost(credenciales, 'acceso/login');
             }
 
             if (!jQuery.isEmptyObject(promise)) {

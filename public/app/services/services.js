@@ -48,9 +48,10 @@
             servicio = environment.URL_SERVICES + "/" + servicio;
             var req = {
                 method: 'GET',
-                url: servicio
+                url: servicio,
+                params: data
             };
-            req = $.extend(req, data);
+            //req = $.extend(req, data);
             return $http(req);
         };
 
