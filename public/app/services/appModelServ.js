@@ -103,7 +103,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
             }
         };
     };
-    
+
     var getNewHome = function() {
         return {
             id: 'home',
@@ -123,7 +123,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         return {
             id: 'reportes',
             desc: 'Gestor de Reportes',
-            selected: true,
+            selected: false,
             listado: {
                 selected: true,
                 etapaSelected: true,
@@ -139,13 +139,60 @@ function appModelServ(sesionesControl, $location, $log, $window) {
             }
         };
     };
+    var getNewViewImagenes = function() {
+        var img = [
+            {
+                standby_show: false,
+                archivo_show: true,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+            , {
+                standby_show: true,
+                archivo_show: false,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+            , {
+                standby_show: true,
+                archivo_show: false,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+            , {
+                standby_show: true,
+                archivo_show: false,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+            , {
+                standby_show: true,
+                archivo_show: false,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+            , {
+                standby_show: true,
+                archivo_show: false,
+                imagencargada_show: false,
+                imagencargada_base64: '',
+                imagencargada_nombre: ''
+            }
+        ];
+        return img;
+    };
     var getNewImagenes = function() {
         return {
             id: 'imagenes',
             desc: 'Gestor de Imágenes',
-            selected: false,
+            selected: true,
             listado: {
-                selected: true,
+                selected: false,
                 etapaSelected: true,
                 tareaSelected: false,
                 etapaSeleccionada: {
@@ -155,55 +202,12 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 etapas: []
             },
             cargar: {
-                selected: false,
+                selected: true,
                 imagenActual: {
                     num: 0,
                     name: ''
                 },
-                imagenes: [
-                    {
-                        standby_show: false,
-                        archivo_show: true,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                    , {
-                        standby_show: true,
-                        archivo_show: false,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                    , {
-                        standby_show: true,
-                        archivo_show: false,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                    , {
-                        standby_show: true,
-                        archivo_show: false,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                    , {
-                        standby_show: true,
-                        archivo_show: false,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                    , {
-                        standby_show: true,
-                        archivo_show: false,
-                        imagencargada_show: false,
-                        imagencargada_base64: '',
-                        imagencargada_nombre: ''
-                    }
-                ]
+                imagenes: getNewViewImagenes()
             }
         };
     };
@@ -229,6 +233,8 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         , setUser: setUser
         , VISTAS: VISTAS
         , getNewVISTAS: getNewVISTAS
+        , getNewImagenes: getNewImagenes
+        , getNewViewImagenes: getNewViewImagenes
 
                 // Funciones
         , cacheSesion: cacheSesion

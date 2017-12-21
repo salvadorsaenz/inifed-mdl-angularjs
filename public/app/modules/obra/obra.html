@@ -96,7 +96,7 @@
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Imágenes
                     </div>
-                    
+
                     <!--Etapas-->
                     <div ng-show="VISTAS['reportes'].listado.etapaSelected">
                         <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--Tareas-->
                     <div ng-show="VISTAS['reportes'].listado.tareaSelected">
                         <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
@@ -120,16 +120,16 @@
                         <div>
                             <div class="div-vertical etapa" 
                                  ng-repeat="tarea in VISTAS['reportes'].listado.etapaSeleccionada.tareas" 
-                                  ng-click="seleccionaTarea('reportes', tarea.idTarea);">
+                                 ng-click="seleccionaTarea('reportes', tarea.idTarea);">
                                 <span class="helper"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tarea.orden}} {{tarea.nombre}}
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!--Cargar-->
                 <div class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected">
-                    
+
                     <div class="div-encabezado-imagenes">
                         <div style="float: left;">
                             <div class="div-vertical" style="float: left; font-size: 14px;">
@@ -147,7 +147,7 @@
                             <span class="helper"></span>{{VISTAS['reportes'].listado.tareaSeleccionada.orden}} {{VISTAS['reportes'].listado.tareaSeleccionada.nombre}}
                         </div>
                     </div>
-                    
+
                     <div style="margin-bottom: 25px;">
                         <div style="float: left;">
                             <div style="float: left; ">
@@ -155,7 +155,7 @@
                             </div>
                             <div style="float: left; ">
                                 <input id="avanceSemanal" name="avanceSemanal" class="mdl-textfield__input" 
-                                   type="text" ng-model="reporte.avanceSemanal" required="">
+                                       type="text" ng-model="reporte.avanceSemanal" required="">
                             </div>
                         </div>
                         <div style="float: left;">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div style="margin-bottom: 25px;">
                         <textarea class="mdl-textfield__input" rows="10" style="border: 0.5px solid rgba(18,152,141,.8)"></textarea>
                     </div>
@@ -189,7 +189,7 @@
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Imágenes
                     </div>
-                    
+
                     <!--Etapas-->
                     <div ng-show="VISTAS['imagenes'].listado.etapaSelected">
                         <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
@@ -200,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--Tareas-->
                     <div ng-show="VISTAS['imagenes'].listado.tareaSelected">
                         <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
@@ -213,7 +213,7 @@
                         <div>
                             <div class="div-vertical etapa" 
                                  ng-repeat="tarea in VISTAS['imagenes'].listado.etapaSeleccionada.tareas" 
-                                  ng-click="seleccionaTarea('imagenes', tarea.idTarea);">
+                                 ng-click="seleccionaTarea('imagenes', tarea.idTarea);">
                                 <span class="helper"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tarea.orden}} {{tarea.nombre}}
                             </div>
                         </div>
@@ -227,7 +227,8 @@
                             <span class="helper"></span>{{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
                         </div>
                         <div class="div-vertical" style="float: right;">
-                            <button ng-click="guardar();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Guardar</button>
+                            <button ng-click="guardar();" style="color: #0F998F;"
+                                    class="mdl-button mdl-js-button mdl-js-ripple-effect">Guardar</button>
                         </div>
                     </div>
                     <div class="mdl-grid-sin-padding">
@@ -362,6 +363,25 @@
 
                         </div>
                     </div>
+
+                    <dialog class="mdl-dialog">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                                Carga exitosa
+                            </div>
+                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
+                                <i class="material-icons">done</i>
+                            </div>
+                        </div>
+                        <div class="mdl-grid" style="font-size: 14px;">
+                            Se añadieron {{imagenesCargadas}} imágenes a {{VISTAS['imagenes'].listado.tareaSeleccionada.orden}} {{VISTAS['imagenes'].listado.tareaSeleccionada.nombre}}
+                        </div>
+                        <div class="mdl-dialog__actions">
+                            <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
+                                Regresar a Obra
+                            </button>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>
