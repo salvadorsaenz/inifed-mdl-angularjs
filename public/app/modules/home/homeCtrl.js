@@ -26,7 +26,8 @@ function homeCtrl($scope, environment, consultarPost, consultarGet, appServices,
             promise = appServices.exec(serviceItem);
         } else {
             // CambiarNombreServicio
-            promise = consultarPost($scope.userData, 'logout');
+            var data = {};
+            promise = consultarPost(data, 'acceso/logout');
         }
             
         promise.then(
