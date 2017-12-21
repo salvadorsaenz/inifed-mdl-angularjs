@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "data": {
+        "idTarea": 13,
+        "idImagen": 5,
+        "imagen": ""
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}

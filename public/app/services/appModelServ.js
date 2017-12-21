@@ -192,7 +192,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
             desc: 'Gestor de Imágenes',
             selected: true,
             listado: {
-                selected: false,
+                selected: true,
                 etapaSelected: true,
                 tareaSelected: false,
                 etapaSeleccionada: {
@@ -202,7 +202,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 etapas: []
             },
             cargar: {
-                selected: true,
+                selected: false,
                 imagenActual: {
                     num: 0,
                     name: ''

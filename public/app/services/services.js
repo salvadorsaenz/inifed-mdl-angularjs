@@ -9,6 +9,7 @@
             .factory("consultarPost", consultarPost)
             .factory("consultarGet", consultarGet)
             .factory("appServices", appServices)
+            .factory("postNtfFiles", postNtfFiles)
             ;
 
     //Servicios
@@ -52,6 +53,34 @@
                 params: data
             };
             //req = $.extend(req, data);
+            return $http(req);
+        };
+
+    }
+    
+    /**
+     * @name postNtfFiles
+     * @param {type} $http
+     * @param {type} environment
+     * @returns {Function}
+     * @description permite realizar peticiones de tipo rest mediante el metodo POST 
+     * devolviendo el resultado de tal petición
+     */
+    function postNtfFiles($http, environment) {
+        return function (data, servicio) {
+            servicio = environment.URL_SERVICES + "/" + servicio;
+            var req = {
+                method: 'POST',
+                url: servicio,
+                headers: { 'Content-Type': undefined },
+                transformRequest: function (data) {
+                    var formData = new FormData();                                                                
+                    formData.append('idTarea', data.idTarea);
+                    formData.append('file', data.file);
+                    return formData;
+                }, 
+                data: data
+            };
             return $http(req);
         };
 

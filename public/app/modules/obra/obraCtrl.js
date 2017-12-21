@@ -2,7 +2,7 @@
 app.controller("obraCtrl", obraCtrl);
 
 function obraCtrl($scope, environment, consultarPost, consultarGet, appServices, appModelServ, 
-    $log, $location) {
+    postNtfFiles, $log, $location) {
 
     $log.info('obraCtrl');
     var imagenActual = {
@@ -15,7 +15,11 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     $scope.reporte = {
         avanceSemanal: 0
     };
-    $scope.imagenesCargadas = 0;
+    $scope.imagenes = {
+        porSubir: 0,
+        respondioService: 0,
+        cargadas: 0
+    };
 
     $scope.muestraOcultaInfoObra = function() {
         $scope.VISTAS['home'].infoObra_show = !$scope.VISTAS['home'].infoObra_show;
@@ -97,23 +101,64 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
 
     $scope.guardar = function() {
         $log.info('guardar');
-        var archivosPorCargar = 0;
+        $scope.imagenes = {
+            porSubir: 0,
+            respondioService: 0,
+            cargadas: 0
+        };
         var files = $('.archivo');
-//        $log.info('files', files);
+        var arrFiles = [];
         for (var i=0; i < files.length; i++) {
             if (files[i].files.length > 0) {
-                $log.info('file', files[i].files[0]);
-                archivosPorCargar++;
+//                $log.info('file', files[i].files[0]);
+                arrFiles.push(files[i].files[0]);
             }
-            $log.info('file', files[i].files);
-            
         }
-        var file0 = $('#archivo_0')[0].files[0];
-//        $log.info('file0', file0);
+        $log.info('arrFiles', arrFiles);
+        $scope.imagenes.porSubir = arrFiles.length;
         
-        if (archivosPorCargar > 0) {
-            dialog.showModal();
+        if ($scope.imagenes.porSubir > 0) {
+            var promise = {};
+            for (var j=0; j < arrFiles.length; j++) {
+                if (environment.getEnvironment === 'SALVADOR') {
+                    var serviceItem = {
+                        use: 'json'
+                        , json: 'public/assets/json/GuardaImagen_response.json'
+                    };
+                    promise = appServices.exec(serviceItem);
+                } else {
+                    // CambiarNombreServicio
+                    var data = {
+                        idTarea: appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.idTarea,
+                        file: arrFiles[j]
+                    };
+                    promise = postNtfFiles(data, 'imagen/fileupload');
+                }
+
+                promise.then(
+                    function(payload) {
+                        var result = payload.data;
+                        $log.info('result', result);
+                        if (result.success) {
+                            $scope.imagenes.cargadas++;
+                        }
+                        $scope.imagenes.respondioService++;
+
+                        if ($scope.imagenes.respondioService === $scope.imagenes.porSubir) {
+                            dialog.showModal();
+                        }
+                    },
+                    function(errorPayload) {
+                        $log.error('failure errorPayload', errorPayload);
+                        $scope.imagenes.respondioService++;
+
+                        if ($scope.imagenes.respondioService === $scope.imagenes.porSubir) {
+                            dialog.showModal();
+                        }
+                    });
+            }
         }
+        
     };
 
     var consultaObra = function() {
