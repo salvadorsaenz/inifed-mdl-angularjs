@@ -105,7 +105,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 $log.info('file', files[i].files[0]);
                 archivosPorCargar++;
             }
-//            $log.info('file', files[i].files);
+            $log.info('file', files[i].files);
             
         }
         var file0 = $('#archivo_0')[0].files[0];
