@@ -408,6 +408,9 @@ p{
 .info-obra-linea > span {
     color: black;
 }
+.mdl-grid{
+    font-family: 'Open Sans'
+}
 #reportesCargarFormulariosImagenes{
     overflow-y: auto;
     max-height: 50vh;
