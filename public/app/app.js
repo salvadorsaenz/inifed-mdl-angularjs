@@ -38,6 +38,8 @@ app.config(function ($routeProvider) {
 app.run(function ($rootScope, $location, appModelServ, $timeout) {
     //creamos un array con las rutas que queremos controlar
     var rutasPrivadas = ['/login', '/home', '/obra', '/imagenes', '/logout'];
+    $rootScope.anchoVentana = window.innerWidth;
+    $rootScope.altoVentana = window.innerHeight;
     //al cambiar de rutas
     $rootScope.$on('$routeChangeStart', function () {
         //si en el array rutasPrivadas existe $location.path(), locationPath en el login

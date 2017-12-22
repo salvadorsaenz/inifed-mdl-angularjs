@@ -54,6 +54,17 @@
 
     <!--Contenido-->
     <main class="mdl-layout__content" style="height: 68%;">
+        <div class="plataformName">
+            <div class="title div-plataforma" style="text-align: center; margin-top: {{$root.altoVentana / 3}}px">
+                Plataforma para la Reconstrucción de la infraestructura afectada
+            </div>
+            <div class="obra-logos-centro">
+                <img src="public/assets/images/logos/SEP_logo_2012.png" class="img-responsive sep">
+            </div>
+            <div class="obra-logos-centro">
+                <img src="public/assets/images/logos/logo-INIFED_alt.png" class="img-responsive inifed">
+            </div>
+        </div>
 
         <div class="div-obra-home">
             <!--Tarjeta Info-->
@@ -71,7 +82,7 @@
 
             <!--Home-->
             <div id="home" class="obra-fondo" ng-show="VISTAS['home'].selected">
-                <div class="title div-plataforma" style="text-align: center;">
+                <div class="title div-plataforma" style="text-align: center; margin-top: {{$root.altoVentana / 2}}px">
                     Plataforma para la Reconstrucción de la infraestructura afectada
                 </div>
                 <div class="obra-logos-centro">
@@ -91,6 +102,7 @@
                         <button class="accordion">
                             <div class="iconAlert">
                                 <img src="public/assets/images/svg/alertIcon.svg">
+                                <span class="circleAlert"></span>
                             </div>
                             <div class="labelAcordion">
                                 Aviso   14/11/2017
@@ -217,11 +229,11 @@
                                     <button ng-click="adjuntar();" 
                                             class="mdl-button mdl-js-button mdl-js-ripple-effect"
                                             ng-disabled="(!reporte.imagenesAdjuntasSelected[0]) &&
-                                                        (!reporte.imagenesAdjuntasSelected[1]) &&
-                                                        (!reporte.imagenesAdjuntasSelected[2]) &&
-                                                        (!reporte.imagenesAdjuntasSelected[3]) &&
-                                                        (!reporte.imagenesAdjuntasSelected[4]) &&
-                                                        (!reporte.imagenesAdjuntasSelected[5])">Adjuntar</button>
+                                                                (!reporte.imagenesAdjuntasSelected[1]) &&
+                                                                (!reporte.imagenesAdjuntasSelected[2]) &&
+                                                                (!reporte.imagenesAdjuntasSelected[3]) &&
+                                                                (!reporte.imagenesAdjuntasSelected[4]) &&
+                                                                (!reporte.imagenesAdjuntasSelected[5])">Adjuntar</button>
                                 </div>
                             </div>
                         </div>
@@ -276,9 +288,9 @@
                                 <div style="float: left; ">
                                     <button ng-click="enviarReporte();" 
                                             class="mdl-button mdl-js-button mdl-js-ripple-effect" 
-                                            ng-disabled="(reporte.avanceSemanal == '0' || reporte.avanceSemanal == '') || 
-                                                        (reporte.textoAvance == '') || 
-                                                        (reporte.imagenesAdjuntas.length === 0)">Enviar Reporte</button>
+                                            ng-disabled="(reporte.avanceSemanal == '0' || reporte.avanceSemanal == '') ||
+                                                                (reporte.textoAvance == '') ||
+                                                                (reporte.imagenesAdjuntas.length === 0)">Enviar Reporte</button>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +396,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
 
             <!--Imagenes-->
@@ -444,7 +456,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--Imagenes-->
                     <div id="imagenesCargarImagenes" class="mdl-grid mdl-grid-sin-padding">
                         <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
@@ -575,7 +587,7 @@
 
                 </div>
             </div>
-            
+
             <!--Modal-->
             <dialog class="mdl-dialog">
                 <div class="mdl-grid">
@@ -595,7 +607,7 @@
                     </button>
                 </div>
             </dialog>
-            
+
         </div>
 
     </main>

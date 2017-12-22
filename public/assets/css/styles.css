@@ -151,14 +151,14 @@ body {
 .encabezado-login > div {
     width: 50%; 
 }
-.div-plataforma {
-    margin-top: 150px; 
-}
 .div-plataforma-login {
     margin-top: 110px; 
 }
 .div-plataforma-login > div {
     margin-bottom: 0px;
+}
+.plataformName{
+    position: absolute;
 }
 .div-inicio-sesion {
     margin-top: 40px;
