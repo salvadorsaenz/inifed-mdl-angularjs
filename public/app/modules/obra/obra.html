@@ -57,7 +57,7 @@
 
         <div class="div-obra-home">
             <!--Tarjeta Info-->
-            <div class="mdl-card mdl-shadow--2dp info-obra open-sans" ng-show="VISTAS['home'].infoObra_show">
+            <div id="tarjetaInfo" class="mdl-card mdl-shadow--2dp info-obra open-sans" ng-show="VISTAS['home'].infoObra_show">
                 <div style="width: 100%; height: 20%;">
                     <p class="text_gray info-obra-linea">NOMBRE: <span>{{user.obraSeleccionada.nombre}}</span></p>
                     <p class="text_gray info-obra-linea">NIVEL: <span>{{user.obraSeleccionada.nivel}}</span></p>
@@ -70,7 +70,7 @@
             <!--Vistas-->
 
             <!--Home-->
-            <div class="obra-fondo" ng-show="VISTAS['home'].selected">
+            <div id="home" class="obra-fondo" ng-show="VISTAS['home'].selected">
                 <div class="title div-plataforma" style="text-align: center;">
                     Plataforma para la Reconstrucción de la infraestructura afectada
                 </div>
@@ -83,22 +83,22 @@
             </div>
 
             <!--Alertas-->
-            <div class="obra-fondo" ng-show="VISTAS['alertas'].selected">
+            <div id="alertas" class="obra-fondo" ng-show="VISTAS['alertas'].selected">
                 <div class="mdl-card mdl-shadow--2dp tarjeta">
 
                 </div>
             </div>
 
             <!--Reportes-->
-            <div class="obra-fondo open-sans" ng-show="VISTAS['reportes'].selected">
+            <div id="reportes" class="obra-fondo open-sans" ng-show="VISTAS['reportes'].selected">
                 <!--Listado-->
-                <div class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected">
+                <div id="reportesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Reportes
                     </div>
 
                     <!--Etapas-->
-                    <div ng-show="VISTAS['reportes'].listado.etapaSelected">
+                    <div id="reportesEtapas" ng-show="VISTAS['reportes'].listado.etapaSelected">
                         <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
                         <div>
                             <div class="div-vertical etapa" ng-repeat="etapa in VISTAS['reportes'].listado.etapas" 
@@ -109,7 +109,7 @@
                     </div>
 
                     <!--Tareas-->
-                    <div ng-show="VISTAS['reportes'].listado.tareaSelected">
+                    <div id="reportesTareas" ng-show="VISTAS['reportes'].listado.tareaSelected">
                         <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
                             <div><i class="material-icons" style="padding-top: 7px;">keyboard_arrow_left</i></div>
                             <div class="div-vertical">
@@ -128,187 +128,222 @@
                 </div>
 
                 <!--Cargar-->
-                <div class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected">
+                <div id="reportesCargar" class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected">
                     <!--Encabezado-->
-                    <div class="div-encabezado-imagenes">
-                        <div style="float: left;">
-                            <div class="div-vertical" style="float: left; font-size: 14px;">
-                                <span class="helper"></span>{{VISTAS['reportes'].listado.etapaSeleccionada.orden}} {{VISTAS['reportes'].listado.etapaSeleccionada.etapa}}
-                            </div>
-                        </div>
-                        <div class="div-vertical" style="float: right;">
-                            <p class="texto-semanas">
-                                <span style="font-size: 14px;">SEMANA {{VISTAS['reportes'].listado.tareaSeleccionada.semana}}</span><br>{{VISTAS['reportes'].listado.tareaSeleccionada.fechas}}
-                            </p>
-                        </div>
-                    </div>
-                    <div style="margin-bottom: 25px;">
-                        <div class="div-vertical" style="float: left; font-size: 16px;">
-                            <span class="helper"></span>{{VISTAS['reportes'].listado.tareaSeleccionada.orden}} {{VISTAS['reportes'].listado.tareaSeleccionada.nombre}}
-                        </div>
-                    </div>
-
-                    <!--Reporte-->
-                    <div ng-show="VISTAS['reportes'].cargar.reporteSelected">
-                        <div style="margin-bottom: 15px; height: 50px;">
-                            <div style="">
-                                <div style="float: left; width: 50%;">
-                                    <label style="font-size: 15px;">Avance semanal: </label>
-                                </div>
-                                <div style="float: left; width: 50%;">
-                                    <div style="width: 50px;">
-                                        <input id="avanceSemanal" name="avanceSemanal" 
-                                               class="mdl-textfield__input" style="float: left; border-bottom: 0.5px solid rgba(18,152,141,1);"
-                                               type="number" ng-model="reporte.avanceSemanal" 
-                                               required="" numbers-only>
-                                    </div>
-                                    <div style="float: left;">%</div>
-                                </div>
-                            </div>
-                            <div style="">
-                                <div style="float: left; width: 50%;">
-                                    <label style="font-size: 15px;">Avance acumulado: </label>
-                                </div>
-                                <div style="float: left; width: 50%;">
-                                    <label>{{VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado}}%</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 15px;">
-                            <textarea class="mdl-textfield__input" rows="10" 
-                                      style="border: 0.5px solid rgba(18,152,141,.8)"
-                                      ng-model="reporte.textoAvance"></textarea>
-                        </div>
-                        <div style="margin-bottom: 10px; font-size: 14px;">
-                            Imágenes adjuntas: {{reporte.numImagenesAdjuntas}}
-                        </div>
+                    <div id="reportesCargarEncabezado" style="margin-bottom: 15px;">
                         <div class="div-encabezado-imagenes">
-                            <div style="float: left; ">
-                                <button ng-click="agregarImagenes();" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #0F998F;">Agregar Imágenes</button>
+                            <div style="float: left;">
+                                <div class="div-vertical" style="float: left; font-size: 14px;">
+                                    <span class="helper"></span>{{VISTAS['reportes'].listado.etapaSeleccionada.orden}} {{VISTAS['reportes'].listado.etapaSeleccionada.etapa}}
+                                </div>
                             </div>
-                            <div style="float: left; ">
-                                <button ng-click="enviarReporte();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Enviar Reporte</button>
+                            <div class="div-vertical" style="float: right;">
+                                <p class="texto-semanas" ng-show="VISTAS['reportes'].cargar.reporteSelected">
+                                    <span style="font-size: 14px;">SEMANA {{VISTAS['reportes'].listado.tareaSeleccionada.semana}}</span><br>{{VISTAS['reportes'].listado.tareaSeleccionada.fechas}}
+                                </p>
+                                <div ng-show="VISTAS['reportes'].cargar.imagenesSelected">
+                                    <button ng-click="adjuntar();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Adjuntar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 25px;">
+                            <div class="div-vertical" style="float: left; font-size: 16px;">
+                                <span class="helper"></span>{{VISTAS['reportes'].listado.tareaSeleccionada.orden}} {{VISTAS['reportes'].listado.tareaSeleccionada.nombre}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Formularios-->
+                    <div id="reportesCargarFormularios">
+                        <!--Reporte-->
+                        <div id="reportesCargarFormulariosReporte" ng-show="VISTAS['reportes'].cargar.reporteSelected">
+                            <div style="margin-bottom: 15px; height: 50px;">
+                                <div style="">
+                                    <div style="float: left; width: 50%;">
+                                        <label style="font-size: 15px;">Avance semanal: </label>
+                                    </div>
+                                    <div style="float: left; width: 50%;">
+                                        <div style="width: 50px;">
+                                            <input id="avanceSemanal" name="avanceSemanal" 
+                                                   class="mdl-textfield__input" style="float: left; border-bottom: 0.5px solid rgba(18,152,141,1);"
+                                                   type="number" ng-model="reporte.avanceSemanal" 
+                                                   required="" numbers-only>
+                                        </div>
+                                        <div style="float: left;">%</div>
+                                    </div>
+                                </div>
+                                <div style="">
+                                    <div style="float: left; width: 50%;">
+                                        <label style="font-size: 15px;">Avance acumulado: </label>
+                                    </div>
+                                    <div style="float: left; width: 50%;">
+                                        <label>{{VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado}}%</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <textarea class="mdl-textfield__input" rows="10" 
+                                          style="border: 0.5px solid rgba(18,152,141,.8)"
+                                          ng-model="reporte.textoAvance"></textarea>
+                            </div>
+                            <div style="margin-bottom: 10px; font-size: 14px;">
+                                Imágenes adjuntas: {{reporte.imagenesAdjuntas.length}}
+                            </div>
+                            <div class="div-encabezado-imagenes">
+                                <div style="float: left; ">
+                                    <button ng-click="agregarImagenes();" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #0F998F;">Agregar Imágenes</button>
+                                </div>
+                                <div style="float: left; ">
+                                    <button ng-click="enviarReporte();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Enviar Reporte</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Selecciona Imagenes-->
+                        <div id="reportesCargarFormulariosImagenes" ng-show="VISTAS['reportes'].cargar.imagenesSelected">
+                            <div class="mdl-grid mdl-grid-sin-padding">
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[0].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[0].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[0]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[1].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[1].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[1]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mdl-grid mdl-grid-sin-padding">
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[2].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[2].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[2]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[3].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[3].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[3]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mdl-grid mdl-grid-sin-padding">
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[4].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[4].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[4]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                                    <!--Stand-by-->
+                                    <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[5].standby_show"></div>
+                                    <!--Imagen cargada-->
+                                    <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[5].imagencargada_show">
+                                        <input class="check-imagen" type="checkbox" 
+                                               ng-model="reporte.imagenesAdjuntasSelected[5]">
+                                        <div style="position: relative;">
+                                            <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_base64}}">
+                                            <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_nombre}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--Imagenes-->
+            <div class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
+                <!--Listado-->
+                <div class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected">
+                    <div class="div-vertical" style="height: 40px;">
+                        <span class="helper"></span>Gestor de Imágenes
+                    </div>
+
+                    <!--Etapas-->
+                    <div ng-show="VISTAS['imagenes'].listado.etapaSelected">
+                        <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
+                        <div>
+                            <div class="div-vertical etapa" ng-repeat="etapa in VISTAS['imagenes'].listado.etapas" 
+                                 ng-click="seleccionaEtapa('imagenes', etapa.idEtapa);">
+                                <span class="helper"></span>{{etapa.orden}} {{etapa.etapa}}
                             </div>
                         </div>
                     </div>
 
-                    <!--Selecciona Imagenes-->
-                    <div ng-show="VISTAS['reportes'].cargar.imagenesSelected">
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[0].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[0].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[1].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[1].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_nombre}}</p>
-                                </div>
-
+                    <!--Tareas-->
+                    <div ng-show="VISTAS['imagenes'].listado.tareaSelected">
+                        <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
+                            <div><i class="material-icons" style="padding-top: 7px;">keyboard_arrow_left</i></div>
+                            <div class="div-vertical">
+                                <span class="helper"></span> {{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
                             </div>
                         </div>
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[2].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[2].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[3].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[3].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[4].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[4].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[5].standby_show"></div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[5].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_nombre}}</p>
-                                </div>
-
+                        <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Tarea</div>
+                        <div>
+                            <div class="div-vertical etapa" 
+                                 ng-repeat="tarea in VISTAS['imagenes'].listado.etapaSeleccionada.tareas" 
+                                 ng-click="seleccionaTarea('imagenes', tarea.idTarea);">
+                                <span class="helper"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tarea.orden}} {{tarea.nombre}}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!--Imagenes-->
-                <div class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
-                    <!--Listado-->
-                    <div class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected">
-                        <div class="div-vertical" style="height: 40px;">
-                            <span class="helper"></span>Gestor de Imágenes
-                        </div>
-
-                        <!--Etapas-->
-                        <div ng-show="VISTAS['imagenes'].listado.etapaSelected">
-                            <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
-                            <div>
-                                <div class="div-vertical etapa" ng-repeat="etapa in VISTAS['imagenes'].listado.etapas" 
-                                     ng-click="seleccionaEtapa('imagenes', etapa.idEtapa);">
-                                    <span class="helper"></span>{{etapa.orden}} {{etapa.etapa}}
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Tareas-->
-                        <div ng-show="VISTAS['imagenes'].listado.tareaSelected">
-                            <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
-                                <div><i class="material-icons" style="padding-top: 7px;">keyboard_arrow_left</i></div>
-                                <div class="div-vertical">
-                                    <span class="helper"></span> {{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
-                                </div>
-                            </div>
-                            <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Tarea</div>
-                            <div>
-                                <div class="div-vertical etapa" 
-                                     ng-repeat="tarea in VISTAS['imagenes'].listado.etapaSeleccionada.tareas" 
-                                     ng-click="seleccionaTarea('imagenes', tarea.idTarea);">
-                                    <span class="helper"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tarea.orden}} {{tarea.nombre}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Cargar-->
-                    <div class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected">
+                <!--Cargar-->
+                <div class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected">
+                    <!--Encabezado-->
+                    <div>
                         <div class="div-encabezado-imagenes mdl-grid-sin-padding">
                             <div class="div-vertical" style="float: left; font-size: 13px;">
                                 <span class="helper"></span>{{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
@@ -323,155 +358,156 @@
                                 <span class="helper"></span>{{VISTAS['imagenes'].listado.tareaSeleccionada.orden}} {{VISTAS['imagenes'].listado.tareaSeleccionada.nombre}}
                             </div>
                         </div>
-
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[0].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[0].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_0" name="archivo_0" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[0].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[0].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[0].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[1].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[1].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_1" name="archivo_1" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[1].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[1].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[1].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[2].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[2].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_2" name="archivo_2" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[2].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[2].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[2].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[3].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[3].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_3" name="archivo_3" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[3].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[3].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[3].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mdl-grid mdl-grid-sin-padding">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[4].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[4].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_4" name="archivo_4" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[4].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[4].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[4].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-
-                                <!--Stand-by-->
-                                <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[5].standby_show"></div>
-                                <!--Archivo-->
-                                <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[5].archivo_show">
-                                    <span class="helper"></span>
-                                    <label>
-                                        <i class="material-icons button-add-icon">add</i>
-                                        <input id="archivo_5" name="archivo_5" type="file" style="display: none;"
-                                               class="archivo" accept="image/x-png,image/gif,image/jpeg">
-                                    </label>
-                                </div>
-                                <!--Imagen cargada-->
-                                <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[5].imagencargada_show">
-                                    <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[5].imagencargada_base64}}">
-                                    <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[5].imagencargada_nombre}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <dialog class="mdl-dialog">
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                                    Carga exitosa
-                                </div>
-                                <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
-                                    <i class="material-icons">done</i>
-                                </div>
-                            </div>
-                            <div class="mdl-grid" style="font-size: 14px;">
-                                Se añadieron {{imagenes.cargadas}} imágenes a {{VISTAS['imagenes'].listado.tareaSeleccionada.orden}} {{VISTAS['imagenes'].listado.tareaSeleccionada.nombre}}
-                            </div>
-                            <div class="mdl-dialog__actions">
-                                <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
-                                    Regresar a Obra
-                                </button>
-                            </div>
-                        </dialog>
                     </div>
+
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[0].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[0].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_0" name="archivo_0" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[0].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[0].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[0].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[1].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[1].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_1" name="archivo_1" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[1].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[1].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[1].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[2].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[2].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_2" name="archivo_2" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[2].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[2].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[2].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[3].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[3].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_3" name="archivo_3" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[3].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[3].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[3].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="mdl-grid mdl-grid-sin-padding">
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[4].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[4].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_4" name="archivo_4" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[4].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[4].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[4].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+
+                            <!--Stand-by-->
+                            <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['imagenes'].cargar.imagenes[5].standby_show"></div>
+                            <!--Archivo-->
+                            <div class="div-carga-imagen button-add-file" ng-show="VISTAS['imagenes'].cargar.imagenes[5].archivo_show">
+                                <span class="helper"></span>
+                                <label>
+                                    <i class="material-icons button-add-icon">add</i>
+                                    <input id="archivo_5" name="archivo_5" type="file" style="display: none;"
+                                           class="archivo" accept="image/x-png,image/gif,image/jpeg">
+                                </label>
+                            </div>
+                            <!--Imagen cargada-->
+                            <div class="div-carga-imagen" ng-show="VISTAS['imagenes'].cargar.imagenes[5].imagencargada_show">
+                                <img class="imagen-cargada" ng-src="{{VISTAS['imagenes'].cargar.imagenes[5].imagencargada_base64}}">
+                                <p class="nombre-imagen-cargada">{{VISTAS['imagenes'].cargar.imagenes[5].imagencargada_nombre}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <dialog class="mdl-dialog">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                                Carga exitosa
+                            </div>
+                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
+                                <i class="material-icons">done</i>
+                            </div>
+                        </div>
+                        <div class="mdl-grid" style="font-size: 14px;">
+                            Se añadieron {{imagenes.cargadas}} imágenes a {{VISTAS['imagenes'].listado.tareaSeleccionada.orden}} {{VISTAS['imagenes'].listado.tareaSeleccionada.nombre}}
+                        </div>
+                        <div class="mdl-dialog__actions">
+                            <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
+                                Regresar a Obra
+                            </button>
+                        </div>
+                    </dialog>
                 </div>
             </div>
+            
         </div>
 
     </main>

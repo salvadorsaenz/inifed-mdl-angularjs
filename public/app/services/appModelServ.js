@@ -149,6 +149,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: false,
                 archivo_show: true,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }
@@ -156,6 +157,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: true,
                 archivo_show: false,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }
@@ -163,6 +165,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: true,
                 archivo_show: false,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }
@@ -170,6 +173,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: true,
                 archivo_show: false,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }
@@ -177,6 +181,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: true,
                 archivo_show: false,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }
@@ -184,6 +189,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 standby_show: true,
                 archivo_show: false,
                 imagencargada_show: false,
+                imagencargada_idImagen: '',
                 imagencargada_base64: '',
                 imagencargada_nombre: ''
             }

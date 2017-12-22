@@ -15,7 +15,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     $scope.reporte = {
         avanceSemanal: 0,
         textoAvance: '',
-        numImagenesAdjuntas: 0,
+        imagenesAdjuntasSelected: [false, false, false, false, false, false],
         imagenesAdjuntas: []
     };
     $scope.imagenes = {
@@ -161,6 +161,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                         appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
                         
                         for (var i=0; i < result.data.length; i++) {
+                            appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_idImagen = result.data[i].idImagen;
                             appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_base64 = result.data[i].imagen;
                             appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_nombre = result.data[i].nombre;
                             appModelServ.VISTAS['reportes'].cargar.imagenes[i].standby_show = false;
@@ -177,6 +178,22 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         appModelServ.VISTAS['reportes'].cargar.reporteSelected = false;
         appModelServ.VISTAS['reportes'].cargar.imagenesSelected = true;
         consultaImagenesPorTarea();
+    };
+    
+    $scope.adjuntar = function() {
+        $scope.reporte.imagenesAdjuntas = [];
+        for (var i=0; i < $scope.reporte.imagenesAdjuntasSelected.length; i++) {
+            if ($scope.reporte.imagenesAdjuntasSelected[i]) {
+                $scope.reporte.imagenesAdjuntas.push(appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_idImagen);
+            }
+        }
+        $log.info('imagenesAdjuntas', $scope.reporte.imagenesAdjuntas);
+        appModelServ.VISTAS['reportes'].cargar.reporteSelected = true;
+        appModelServ.VISTAS['reportes'].cargar.imagenesSelected = false;
+    };
+    
+    $scope.enviarReporte = function() {
+        
     };
 
     var consultaObra = function() {
@@ -286,7 +303,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         appModelServ.VISTAS['imagenes'].cargar.imagenes = appModelServ.getNewViewImagenes();
         $scope.$apply();
     };
-
+    
     var init = function() {
         $('.archivo').on('change', function() {
             uploadfilesChange(this, resultBase64);
