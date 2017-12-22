@@ -166,7 +166,7 @@
                                         <div style="width: 50px;">
                                             <input id="avanceSemanal" name="avanceSemanal" 
                                                    class="mdl-textfield__input" style="float: left; border-bottom: 0.5px solid rgba(18,152,141,1);"
-                                                   type="number" ng-model="reporte.avanceSemanal" 
+                                                   type="text" ng-model="reporte.avanceSemanal" 
                                                    required="" numbers-only>
                                         </div>
                                         <div style="float: left;">%</div>
@@ -300,18 +300,19 @@
                     </div>
                     
                 </div>
+                
             </div>
 
             <!--Imagenes-->
-            <div class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
+            <div id="imagenes" class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
                 <!--Listado-->
-                <div class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected">
+                <div id="imagenesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Imágenes
                     </div>
 
                     <!--Etapas-->
-                    <div ng-show="VISTAS['imagenes'].listado.etapaSelected">
+                    <div id="imagenesListadoEtapas" ng-show="VISTAS['imagenes'].listado.etapaSelected">
                         <div class="div-vertical alertOpt" style="height: 40px;"><span class="helper"></span>Seleccione Etapa</div>
                         <div>
                             <div class="div-vertical etapa" ng-repeat="etapa in VISTAS['imagenes'].listado.etapas" 
@@ -322,7 +323,7 @@
                     </div>
 
                     <!--Tareas-->
-                    <div ng-show="VISTAS['imagenes'].listado.tareaSelected">
+                    <div id="imagenesListadoTareas" ng-show="VISTAS['imagenes'].listado.tareaSelected">
                         <div class="div-tareas" style="height: 40px;" ng-click="irAEtapas();">
                             <div><i class="material-icons" style="padding-top: 7px;">keyboard_arrow_left</i></div>
                             <div class="div-vertical">
@@ -341,9 +342,9 @@
                 </div>
 
                 <!--Cargar-->
-                <div class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected">
+                <div id="imagenesCargar" class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected">
                     <!--Encabezado-->
-                    <div>
+                    <div id="imagenesCargarEncabezado">
                         <div class="div-encabezado-imagenes mdl-grid-sin-padding">
                             <div class="div-vertical" style="float: left; font-size: 13px;">
                                 <span class="helper"></span>{{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
@@ -359,8 +360,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="mdl-grid mdl-grid-sin-padding">
+                    
+                    <!--Imagenes-->
+                    <div id="imagenesCargarImagenes" class="mdl-grid mdl-grid-sin-padding">
                         <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
 
                             <!--Stand-by-->
@@ -487,26 +489,28 @@
                         </div>
                     </div>
 
-                    <dialog class="mdl-dialog">
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
-                                Carga exitosa
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
-                                <i class="material-icons">done</i>
-                            </div>
-                        </div>
-                        <div class="mdl-grid" style="font-size: 14px;">
-                            Se añadieron {{imagenes.cargadas}} imágenes a {{VISTAS['imagenes'].listado.tareaSeleccionada.orden}} {{VISTAS['imagenes'].listado.tareaSeleccionada.nombre}}
-                        </div>
-                        <div class="mdl-dialog__actions">
-                            <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
-                                Regresar a Obra
-                            </button>
-                        </div>
-                    </dialog>
                 </div>
             </div>
+            
+            <!--Modal-->
+            <dialog class="mdl-dialog">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                        {{dialog.status}}
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
+                        <i class="material-icons">done</i>
+                    </div>
+                </div>
+                <div class="mdl-grid" style="font-size: 14px;">
+                    {{dialog.mensaje}}
+                </div>
+                <div class="mdl-dialog__actions">
+                    <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
+                        Regresar a Obra
+                    </button>
+                </div>
+            </dialog>
             
         </div>
 
