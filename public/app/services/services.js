@@ -89,9 +89,7 @@
      * @name appServices
      * @param {type} $http
      * @param {type} environment
-     * @param {type} $rootScope
-     * @param {type} APP_CONFIG
-     * @returns {services_L4.appServices.servicesAnonym$0}
+     * @returns {Object}
      * @description contiene el catalogo de nombres de los servicios y su detalle que se ocupan dentro de la aplicación,
      * así mismo las funciones para realizar las peticiones rest a la BD
      */
