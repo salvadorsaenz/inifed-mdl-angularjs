@@ -142,7 +142,14 @@
                                     <span style="font-size: 14px;">SEMANA {{VISTAS['reportes'].listado.tareaSeleccionada.semana}}</span><br>{{VISTAS['reportes'].listado.tareaSeleccionada.fechas}}
                                 </p>
                                 <div ng-show="VISTAS['reportes'].cargar.imagenesSelected">
-                                    <button ng-click="adjuntar();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Adjuntar</button>
+                                    <button ng-click="adjuntar();" 
+                                            class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                                            ng-disabled="(!reporte.imagenesAdjuntasSelected[0]) &&
+                                                        (!reporte.imagenesAdjuntasSelected[1]) &&
+                                                        (!reporte.imagenesAdjuntasSelected[2]) &&
+                                                        (!reporte.imagenesAdjuntasSelected[3]) &&
+                                                        (!reporte.imagenesAdjuntasSelected[4]) &&
+                                                        (!reporte.imagenesAdjuntasSelected[5])">Adjuntar</button>
                                 </div>
                             </div>
                         </div>
@@ -157,8 +164,9 @@
                     <div id="reportesCargarFormularios">
                         <!--Reporte-->
                         <div id="reportesCargarFormulariosReporte" ng-show="VISTAS['reportes'].cargar.reporteSelected">
-                            <div style="margin-bottom: 15px; height: 50px;">
-                                <div style="">
+                            <!--Avances-->
+                            <div id="reportesCargarFormulariosReporteAvances" style="margin-bottom: 15px; height: 50px;">
+                                <div>
                                     <div style="float: left; width: 50%;">
                                         <label style="font-size: 15px;">Avance semanal: </label>
                                     </div>
@@ -167,7 +175,7 @@
                                             <input id="avanceSemanal" name="avanceSemanal" 
                                                    class="mdl-textfield__input" style="float: left; border-bottom: 0.5px solid rgba(18,152,141,1);"
                                                    type="text" ng-model="reporte.avanceSemanal" 
-                                                   required="" numbers-only>
+                                                   numbers-only>
                                         </div>
                                         <div style="float: left;">%</div>
                                     </div>
@@ -186,15 +194,19 @@
                                           style="border: 0.5px solid rgba(18,152,141,.8)"
                                           ng-model="reporte.textoAvance"></textarea>
                             </div>
-                            <div style="margin-bottom: 10px; font-size: 14px;">
+                            <div ng-show="reporte.imagenesAdjuntas.length > 0" style="margin-bottom: 10px; font-size: 14px;">
                                 Imágenes adjuntas: {{reporte.imagenesAdjuntas.length}}
                             </div>
                             <div class="div-encabezado-imagenes">
                                 <div style="float: left; ">
-                                    <button ng-click="agregarImagenes();" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #0F998F;">Agregar Imágenes</button>
+                                    <button ng-click="agregarImagenes();" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #0F998F;">{{(reporte.imagenesAdjuntas.length > 0) ? 'Editar' : 'Agregar'}} Imágenes</button>
                                 </div>
                                 <div style="float: left; ">
-                                    <button ng-click="enviarReporte();" class="mdl-button mdl-js-button mdl-js-ripple-effect">Enviar Reporte</button>
+                                    <button ng-click="enviarReporte();" 
+                                            class="mdl-button mdl-js-button mdl-js-ripple-effect" 
+                                            ng-disabled="(reporte.avanceSemanal == '0' || reporte.avanceSemanal == '') || 
+                                                        (reporte.textoAvance == '') || 
+                                                        (reporte.imagenesAdjuntas.length === 0)">Enviar Reporte</button>
                                 </div>
                             </div>
                         </div>

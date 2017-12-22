@@ -17,7 +17,8 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             avanceSemanal: 0,
             textoAvance: '',
             imagenesAdjuntasSelected: [false, false, false, false, false, false],
-            imagenesAdjuntas: []
+            imagenesAdjuntas: [],
+            puedeEnviarReporte: false
         };
     };
     $scope.reporte = newReporte();
@@ -366,7 +367,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
 
         $scope.$apply();
     };
-
+    
     var init = function() {
         $('.archivo').on('change', function() {
             uploadfilesChange(this, resultBase64);
