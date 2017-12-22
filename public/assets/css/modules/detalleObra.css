@@ -3,7 +3,7 @@
 */
 /* 
     Created on : 11/12/2017, 11:36:34 PM
-    Author     : CliqueFlow
+    Author     : Ad�n Reyes
 */
 .header-blue {
     background: #0B4A73;
@@ -80,6 +80,7 @@
     box-shadow: 1px 1px 13px rgba(0,0,0,0.5);
     overflow: hidden;
     border-bottom: solid 2px #0F6299;
+    max-height: 90px;
 }
 .menuBottom > div{
     width: 30%;
@@ -118,7 +119,7 @@
     position: absolute;
     right: 11px;
 }
-/*Juego de botones y selección*/
+/*Juego de botones y selecci�n*/
 /*Alerta*/
 .alertOpt.active, .alertOpt.selected{
     color: white;
@@ -216,20 +217,15 @@
 }
 .wrapperContentVentana{
     box-shadow: 1px 1px 13px rgba(0,0,0,0.5);
-    width: 86%;
-    height: 70vh;
-    margin: 0 auto;
-    margin-top: 6%;
-    position: absolute;
-    z-index: 999;
-    left: 7%;
     background: #F2F2F2;
     font-family: 'Open Sans';
     font-size: 0.8em;
-    padding: 4%;
+    padding: 6%;
+}
+.marg0{
+    margin: 0;
 }
 .panel {
-    margin-bottom: 20px;
     background-color: #fff;
     border: 0px solid transparent;
     border-radius: 0px;
@@ -262,23 +258,23 @@
     position: relative;
     width: 95%;
     height: 430px;
-    margin: 10px auto;
+    margin: 25px auto;
 }
 .tarjeta-gestores {
     background-color: #e6e6e6;
     padding: 15px;
 }
 
-/*Carga de imágenes*/
+/*Carga de im�genes*/
 .mdl-grid-sin-padding {
     padding: 0;
     width: 90%;
     margin: 0 auto;
 }
 .div-carga-imagen {
-  width: 100%;
-  height: 100px;
-  position: relative;
+    width: 100%;
+    height: 100px;
+    position: relative;
 }
 .button-add-file {
     border: 2px dashed #ddd;
@@ -319,7 +315,7 @@
 }
 .div-encabezado-imagenes > div {
     width: 50%;    
-    height: 35px;
+    height: 30px;
 }
 .etapa {
     height: 40px;
@@ -348,4 +344,84 @@
     z-index: 10;
     right: 5px;
     top: 5px;
+}
+/*Acordion*/
+.accordion {
+    background-color: transparent;
+    border-bottom: solid 2px #CCCCCC;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin: 0;
+    letter-spacing: 0em;
+    height: 75px;
+}
+
+.active, .accordion:hover {
+    background-color: transparent;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+    font-family: Flaticon;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 20px;
+}
+
+.flaticon-caret-symbol:before { content: "\f100"; }
+.accordion:after {
+    font-family: Flaticon;
+    content: '\f100';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transform:  translateX(-50%) translateY(-50%) rotate(-180deg);
+    margin-top: 14px;
+}
+
+.accordion.active:after {
+    font-family: Flaticon;
+    content: "\f100";
+    transform:  translateX(-50%) translateY(-50%) rotate(0deg);
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.wrapperAcordion{
+    overflow-y: auto;
+    max-height: 58vh;
+    height: 58vh;
+    margin-top: 12px;
+}
+.iconAlert > img{
+    width: 25px
+}
+.iconAlert{
+    float: left;
+    width: 20%;
+}
+.labelAcordion{
+    float: left;
+    width: 60%;
+    font-family: 'Open Sans';
+    font-size: 15px;
+}
+.info-obra-acordion {
+    width: 100%; 
+    text-align: left;
+    margin: 0;
+}
+.info-obra-acordion > span{
+    color: black;
 }

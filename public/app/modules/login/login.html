@@ -22,15 +22,15 @@
         </div>
         
         <div class="div-inicio-sesion">
-            <p class="img-center-in-div">INICIO DE SESIÓN</p>
+            <p class="img-center-in-div titleLogin">INICIO DE SESIÓN</p>
         </div>
-        <form name="userForm" novalidate="">
+        <form name="userForm" novalidate="" autocomplete="off">
             <div class="div-renglon-inputs-login">
                 <div class="mdl-textfield mdl-js-textfield div-inputs-login" 
                      ng-class="{ 'is-invalid' : (userForm.usuario.$invalid && userForm.usuario.$touched) ||
                                 (userForm.usuario.$invalid && userForm.usuario.$dirty) ||
                                 (userForm.usuario.$invalid && user.submitted) }">
-                    <input id="usuario" name="usuario" class="mdl-textfield__input img-center-in-div" 
+                    <input id="usuario" name="usuario" class="mdl-textfield__input img-center-in-div inputText" 
                            type="text" ng-model="user.usuario" required="">
                     <label class="mdl-textfield__label" for="usuario">Usuario</label>
                     <span class="mdl-textfield__error">El usuario es requerido</span>
@@ -40,7 +40,7 @@
                                                    (userForm.password.$invalid && userForm.password.$dirty) ||
                                                    (userForm.password.$invalid && user.submitted) }">
                     <input id="password" name="password" type="password" 
-                           class="mdl-textfield__input img-center-in-div" ng-model="user.password" required="">
+                           class="mdl-textfield__input img-center-in-div inputText" ng-model="user.password" required="">
                     <label class="mdl-textfield__label" for="password">Password</label>
                     <span class="mdl-textfield__error">El password es requerido</span>
                 </div>

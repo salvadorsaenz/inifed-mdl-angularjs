@@ -22,11 +22,12 @@ section{
 .title, .subtitle{
     color: #999999;
     font-family: 'TrajanPro-Regular';
-    font-size: 1.2em;
-    /*padding: 2% 8%;*/
+    font-size: 1.1em!important;
+    padding: 2% 7%;
 }
 .subtitle{
     color: #0B4A73;
+    padding-top: 0;
 }
 .subtitle > span{
     font-size: 0.8em;
@@ -34,7 +35,7 @@ section{
 }
 .titleLogin{
     font-family: 'Open Sans';
-    font-size: 0.9em;
+    font-size: 1em;
     color: #666666;
 }
 .scrollLogin{
@@ -55,10 +56,11 @@ form > div > input{
     font-family: 'Open Sans';
     font-size: 1em;
     box-shadow: none;
-    margin-bottom: 15px; 
+    margin-bottom: 0px; 
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+    text-align: left!important;
 }
 :focus {
     outline: -webkit-focus-ring-color auto 0px!important;

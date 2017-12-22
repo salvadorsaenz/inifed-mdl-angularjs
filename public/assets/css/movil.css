@@ -14,7 +14,7 @@
     width: 65%;
 }
 .div-inicio-sesion {
-    margin-top: 40px;
+    margin-top: 85px;
 }
 .mdl-mini-footer {
     padding: 5px 5px;
@@ -34,10 +34,12 @@
 .img-grupo-ia-footer {
     width: 75%;
     float: left;
+    max-width: 130px;
 }
 .img-agendas-footer {
     width: 90%;
     float: right;
+    max-width: 130px;
 }
 
 
@@ -58,4 +60,5 @@
 }
 .mdl-layout__drawer {
     /*width: 300px;*/
+    overflow-x: hidden;
 }

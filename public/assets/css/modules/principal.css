@@ -3,7 +3,7 @@
 */
 /* 
     Created on : 11/12/2017, 03:47:15 PM
-    Author     : CliqueFlow
+    Author     : Adán Reyes
 */
 
 /*Generales*/
@@ -27,6 +27,12 @@
 }
 .text_dark{
     color: #333333;
+}
+.text_red{
+    color: #991F24;
+}
+.text_warning{
+    color: #FBB03B;
 }
 .encabezadoMenu{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6e6e6+0,b3b3b3+100 */
@@ -103,4 +109,7 @@ a.list-group-item, button.list-group-item {
     font-family: 'Open Sans';
     font-size: 1.2em;
     padding: 5px !important;
+}
+.txtRl{
+    text-align: right;
 }

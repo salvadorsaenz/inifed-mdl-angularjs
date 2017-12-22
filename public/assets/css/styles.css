@@ -121,6 +121,22 @@ and open the template in the editor.
     font-weight: 600;
     font-style: normal;
 }
+@font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.eot");
+    src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Flaticon.woff") format("woff"),
+        url("../fonts/Flaticon.ttf") format("truetype"),
+        url("../fonts/Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+    }
+}
 html,
 body {
     height: 100%;
@@ -142,16 +158,19 @@ body {
     margin-top: 110px; 
 }
 .div-plataforma-login > div {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 .div-inicio-sesion {
     margin-top: 40px;
 }
 .div-renglon-inputs-login {
-    padding: 0 100px 0;
+    /*padding: 0 60px 0;*/
+    margin: 0 auto;
+    width: 250px;
 }
 .div-button-login {
     margin-top: 20px;
+    height: 50px;
 }
 .mdl-layout__content {
     background-color: #e6e6e6;
@@ -160,10 +179,21 @@ body {
 .mdl-mini-footer {
     background-color: #f2f2f2;
 }
+.mdl-mini-footer > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+.mdl-mini-footer > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 .msg-login {
     color: #d50000;
 }
-
+.mdl-textfield__error {
+    font-family: 'Open Sans';
+}
 /*Home*/
 .mdl-layout__header {
     background-color: #f2f2f2;
@@ -182,11 +212,13 @@ body {
     width: 25%;
     float: left;
     /*height: 30%;*/
+    max-width: 130px;
 }
 .img-agendas-footer {
     width: 45%;
     float: right;
     /*height: 30%;*/
+    max-width: 130px;
 }
 
 .img-sep-center {
@@ -235,11 +267,43 @@ body {
 }
 .div-inputs-login {
     width: 100%; 
-    margin-top: 5px;
+    margin-top: 0px;
+    margin: 0 auto;
 }
-.button-ia {
+.mdl-textfield{
+    display: block!important;
+    padding: 10px 0;
+}
+.mdl-textfield__label{
+    top: 18px; 
+}
+.mdl-textfield__label:after {
+    bottom: 10px!important;
+}
+.button-ia{
+    background: #999;
+    color: white!important;
+    font-family: 'Open Sans';
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5)!important;
+}
+.button-ia:hover, .button-ia:active, .button-ia:focus {
     background-color: #10998f;
     color: white !important;
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5)!important;
+}
+.mdl-button.mdl-button--colored:focus:not(:active){
+    position: relative;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5)!important;
+    background-color: #10998f;
+}
+.button-ia:active{
+    position: relative;
+    top: 1px;
+    left: 1px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5)!important;
+}
+.img-sep-header, .img-inifed-header{
+    max-width: 260px;
 }
 
 /*Obra*/
@@ -252,9 +316,9 @@ body {
     padding: 0;
 }
 .div-carga-imagen {
-  width: 100%;
-  height: 100px;
-  position: relative;
+    width: 100%;
+    height: 100px;
+    position: relative;
 }
 .button-add-file {
     border: 2px dashed #ddd;

@@ -292,6 +292,18 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         }
     };
     
+	var closePanel = function (i) {
+        var acordion = document.getElementsByClassName("accordion");
+        var j;
+        for (j = 0; j < acordion.length; j++) {
+            if (j != i) {
+                acordion[j].classList.remove("active");
+                var panel = acordion[j].nextElementSibling;
+                panel.style.maxHeight = null;
+            }
+        }
+    };
+
     var regresarAHome = function() {
         $('.archivo').val('');
         appModelServ.VISTAS['home'].selected = true;
@@ -321,6 +333,22 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         $log.info('consultaObra y consultaEtapas');
         consultaObra();
         consultaEtapas();
+		
+		var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                //closePanel();
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        };
     };
 
     init();
