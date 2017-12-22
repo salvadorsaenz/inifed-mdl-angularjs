@@ -123,7 +123,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         return {
             id: 'reportes',
             desc: 'Gestor de Reportes',
-            selected: false,
+            selected: true,
             listado: {
                 selected: true,
                 etapaSelected: true,
@@ -135,7 +135,11 @@ function appModelServ(sesionesControl, $location, $log, $window) {
                 etapas: []
             },
             cargar: {
-                selected: false
+                selected: false,
+                reporteSelected: true,
+                imagenesSelected: false,
+                imagenesPorTarea: [],
+                imagenes: getNewViewImagenes()
             }
         };
     };
@@ -190,7 +194,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         return {
             id: 'imagenes',
             desc: 'Gestor de Imágenes',
-            selected: true,
+            selected: false,
             listado: {
                 selected: true,
                 etapaSelected: true,

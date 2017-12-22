@@ -13,7 +13,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     $scope.user = appModelServ.user;
     $scope.VISTAS = appModelServ.VISTAS;
     $scope.reporte = {
-        avanceSemanal: 0
+        avanceSemanal: 0,
+        textoAvance: '',
+        numImagenesAdjuntas: 0,
+        imagenesAdjuntas: []
     };
     $scope.imagenes = {
         porSubir: 0,
@@ -72,31 +75,6 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         appModelServ.VISTAS['imagenes'].listado.etapaSeleccionada = {};
         appModelServ.VISTAS['imagenes'].listado.etapaSelected = true;
         appModelServ.VISTAS['imagenes'].listado.tareaSelected = false;
-    };
-
-    /**
-     * Upload a file
-     * @param file
-     */
-    var uploadFile = function(file) {
-        console.log('esta adjuntando');
-        var url = "../fachadas/exhortos/imagenes/ImagenesFacade.Class.php";
-        var xhr = new XMLHttpRequest();
-        var fd = new FormData();
-        xhr.open("POST", url, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Every thing ok, file uploaded
-                showFileInfo(file, xhr.responseText);
-                ocultaGif('resultadoArchivo');
-            }
-        };
-        fd.append('uploaded_file', file);
-        fd.append('idActuacion', $('#idActuacion').val());
-        fd.append('cveTipoDocumento', '9');
-        fd.append('cveTipoActuacionExhorto', '1'); 
-        fd.append('accion', 'guardar');
-        xhr.send(fd);
     };
 
     $scope.guardar = function() {
@@ -159,6 +137,46 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             }
         }
         
+    };
+    
+    var consultaImagenesPorTarea = function() {
+        var promise = {};
+        if (environment.getEnvironment === 'SALVADOR') {
+            var serviceItem = {
+                use: 'json'
+                , json: 'public/assets/json/ListaImagenesPorTarea_response.json'
+            };
+            promise = appServices.exec(serviceItem);
+        } else {
+            // CambiarNombreServicio
+            promise = consultarGet({idTarea: appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.idTarea}, 'imagen/preasignada/tarea/lista');
+        }
+
+        promise.then(
+                function(payload) {
+                    var result = payload.data;
+                    $log.info('consultaImagenesPorTarea result', result);
+                    if (result.success) {
+                        appModelServ.VISTAS['reportes'].cargar.imagenesPorTarea = result.data;
+                        appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
+                        
+                        for (var i=0; i < result.data.length; i++) {
+                            appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_base64 = result.data[i].imagen;
+                            appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_nombre = result.data[i].nombre;
+                            appModelServ.VISTAS['reportes'].cargar.imagenes[i].standby_show = false;
+                            appModelServ.VISTAS['reportes'].cargar.imagenes[i].imagencargada_show = true;
+                        }
+                    }
+                },
+                function(errorPayload) {
+                    $log.error('error consultaImagenesPorTarea', errorPayload);
+                });
+    };
+    
+    $scope.agregarImagenes = function() {
+        appModelServ.VISTAS['reportes'].cargar.reporteSelected = false;
+        appModelServ.VISTAS['reportes'].cargar.imagenesSelected = true;
+        consultaImagenesPorTarea();
     };
 
     var consultaObra = function() {
