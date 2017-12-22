@@ -95,7 +95,7 @@
 
             <!--Alertas-->
             <div id="alertas" class="obra-fondo" ng-show="VISTAS['alertas'].selected">
-                <div class="mdl-card mdl-shadow--2dp tarjeta wrapperContentVentana">
+                <div class="mdl-card mdl-shadow--2dp tarjeta wrapperContentVentana" style="height: {{$root.altoVentana - 250}}px">
                     <h5 class="marg0">Historial de Alertas</h5>
 
                     <div class="wrapperAcordion">
@@ -109,7 +109,7 @@
                             </div>
                         </button>
                         <div class="panel">
-                            <div style="width: 100%; height: 20%;">
+                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
                                 <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
                                 <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
                                 <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
@@ -132,7 +132,7 @@
                             </div>
                         </button>
                         <div class="panel">
-                            <div style="width: 100%; height: 20%;">
+                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
                                 <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
                                 <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
                                 <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
@@ -155,7 +155,7 @@
                             </span>
                         </button>
                         <div class="panel">
-                            <div style="width: 100%; height: 20%;">
+                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
                                 <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
                                 <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
                                 <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
@@ -176,7 +176,7 @@
             <!--Reportes-->
             <div id="reportes" class="obra-fondo open-sans" ng-show="VISTAS['reportes'].selected">
                 <!--Listado-->
-                <div id="reportesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected">
+                <div id="reportesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected" style="height: {{$root.altoVentana - 250}}px">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Reportes
                     </div>
@@ -212,7 +212,7 @@
                 </div>
 
                 <!--Cargar-->
-                <div id="reportesCargar" class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected">
+                <div id="reportesCargar" class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected" style="height: {{$root.altoVentana - 250}}px">
                     <!--Encabezado-->
                     <div id="reportesCargarEncabezado" style="margin-bottom: 15px;">
                         <div class="div-encabezado-imagenes">
@@ -303,8 +303,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[0].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[0].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[0]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox" ng-model="reporte.imagenesAdjuntasSelected[0]">
+                                            <span></span>
+                                        </label>
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[0].imagencargada_nombre}}</p>
@@ -318,8 +320,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[1].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[1].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[1]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox"ng-model="reporte.imagenesAdjuntasSelected[1]">
+                                            <span></span>
+                                        </label>                                        
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[1].imagencargada_nombre}}</p>
@@ -335,8 +339,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[2].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[2].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[2]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox" ng-model="reporte.imagenesAdjuntasSelected[2]">
+                                            <span></span>
+                                        </label>
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[2].imagencargada_nombre}}</p>
@@ -350,8 +356,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[3].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[3].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[3]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox" ng-model="reporte.imagenesAdjuntasSelected[3]">
+                                            <span></span>
+                                        </label>
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[3].imagencargada_nombre}}</p>
@@ -367,8 +375,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[4].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[4].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[4]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox" ng-model="reporte.imagenesAdjuntasSelected[4]">
+                                            <span></span>
+                                        </label>
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[4].imagencargada_nombre}}</p>
@@ -382,8 +392,10 @@
                                     <div class="div-carga-imagen imagen-standby" ng-show="VISTAS['reportes'].cargar.imagenes[5].standby_show"></div>
                                     <!--Imagen cargada-->
                                     <div class="div-carga-imagen" ng-show="VISTAS['reportes'].cargar.imagenes[5].imagencargada_show">
-                                        <input class="check-imagen" type="checkbox" 
-                                               ng-model="reporte.imagenesAdjuntasSelected[5]">
+                                        <label class="labelCheck">
+                                            <input class="check-imagen" type="checkbox" ng-model="reporte.imagenesAdjuntasSelected[5]">
+                                            <span></span>
+                                        </label>
                                         <div style="position: relative;">
                                             <img class="imagen-cargada" ng-src="{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_base64}}">
                                             <p class="nombre-imagen-cargada">{{VISTAS['reportes'].cargar.imagenes[5].imagencargada_nombre}}</p>
@@ -402,7 +414,7 @@
             <!--Imagenes-->
             <div id="imagenes" class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
                 <!--Listado-->
-                <div id="imagenesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected">
+                <div id="imagenesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected" style="height: {{$root.altoVentana - 250}}px">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Imágenes
                     </div>
@@ -438,7 +450,7 @@
                 </div>
 
                 <!--Cargar-->
-                <div id="imagenesCargar" class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected">
+                <div id="imagenesCargar" class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected" style="height: {{$root.altoVentana - 250}}px">
                     <!--Encabezado-->
                     <div id="imagenesCargarEncabezado">
                         <div class="div-encabezado-imagenes mdl-grid-sin-padding">
@@ -591,14 +603,14 @@
             <!--Modal-->
             <dialog class="mdl-dialog">
                 <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone">
+                    <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone">
                         {{dialog.status}}
                     </div>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone" style="text-align: right;">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone" style="text-align: right;">
                         <i class="material-icons">done</i>
                     </div>
                 </div>
-                <div class="mdl-grid" style="font-size: 14px;">
+                <div class="mdl-grid" style="font-size: 14px; padding-left: 19px;">
                     {{dialog.mensaje}}
                 </div>
                 <div class="mdl-dialog__actions">

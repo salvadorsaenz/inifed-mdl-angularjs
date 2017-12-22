@@ -86,6 +86,16 @@ app.run(function ($rootScope, $location, appModelServ, $timeout) {
         return false;
     }
     document.addEventListener('click', addRippleEffect, false);
+
+    function resizeEvent() {
+        $rootScope.$apply(function () {
+            $rootScope.altoVentana = window.innerHeight;
+            $rootScope.anchoVentana = window.innerWidth;
+        });
+    }
+    $(window).resize(function () {
+        resizeEvent();
+    });
 });
 
 //función in_array que usamos para comprobar si el usuario
