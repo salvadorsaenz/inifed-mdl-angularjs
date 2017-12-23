@@ -81,13 +81,21 @@
             <!--Vistas-->
 
             <!--Home-->
-            <div id="home" class="obra-fondo" ng-show="VISTAS['home'].selected">
-                
-            </div>
+            <!--div id="home" class="obra-fondo" ng-show="VISTAS['home'].selected">
+                <div class="title div-plataforma" style="text-align: center; margin-top: {{$root.altoVentana / 2}}px">
+                    Plataforma para la Reconstrucción de la infraestructura afectada
+                </div>
+                <div class="obra-logos-centro">
+                    <img src="public/assets/images/logos/SEP_logo_2012.png" class="img-responsive sep">
+                </div>
+                <div class="obra-logos-centro">
+                    <img src="public/assets/images/logos/logo-INIFED_alt.png" class="img-responsive inifed">
+                </div>
+            </div-->
 
             <!--Alertas-->
             <div id="alertas" class="obra-fondo" ng-show="VISTAS['alertas'].selected">
-                <div class="mdl-card mdl-shadow--2dp tarjeta wrapperContentVentana" style="height: {{$root.altoVentana - 250}}px">
+                <div class="mdl-card mdl-shadow--2dp tarjeta wrapperContentVentana" style="min-height: {{$root.altoVentana - 250}}px">
                     <h5 class="marg0">Historial de Alertas</h5>
 
                     <div class="wrapperAcordion">
@@ -168,7 +176,7 @@
             <!--Reportes-->
             <div id="reportes" class="obra-fondo open-sans" ng-show="VISTAS['reportes'].selected">
                 <!--Listado-->
-                <div id="reportesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected" style="height: {{$root.altoVentana - 250}}px">
+                <div id="reportesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['reportes'].listado.selected" style="min-height: {{$root.altoVentana - 250}}px">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Reportes
                     </div>
@@ -204,7 +212,7 @@
                 </div>
 
                 <!--Cargar-->
-                <div id="reportesCargar" class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected" style="height: {{$root.altoVentana - 250}}px">
+                <div id="reportesCargar" class="mdl-card mdl-shadow--2dp tarjeta tarjeta-reportes" ng-show="VISTAS['reportes'].cargar.selected" style="min-height: {{$root.altoVentana - 250}}px">
                     <!--Encabezado-->
                     <div id="reportesCargarEncabezado" style="margin-bottom: 15px;">
                         <div class="div-encabezado-imagenes">
@@ -266,7 +274,7 @@
                                 </div>
                             </div>
                             <div style="margin-bottom: 15px;">
-                                <textarea class="mdl-textfield__input" rows="10" 
+                                <textarea class="mdl-textfield__input" rows="8" 
                                           style="border: 0.5px solid rgba(18,152,141,.8)"
                                           ng-model="reporte.textoAvance"></textarea>
                             </div>
@@ -406,7 +414,7 @@
             <!--Imagenes-->
             <div id="imagenes" class="obra-fondo open-sans" ng-show="VISTAS['imagenes'].selected">
                 <!--Listado-->
-                <div id="imagenesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected" style="height: {{$root.altoVentana - 250}}px">
+                <div id="imagenesListado" class="mdl-card tarjeta tarjeta-gestores" ng-show="VISTAS['imagenes'].listado.selected" style="min-height: {{$root.altoVentana - 250}}px">
                     <div class="div-vertical" style="height: 40px;">
                         <span class="helper"></span>Gestor de Imágenes
                     </div>
@@ -442,7 +450,7 @@
                 </div>
 
                 <!--Cargar-->
-                <div id="imagenesCargar" class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected" style="height: {{$root.altoVentana - 250}}px">
+                <div id="imagenesCargar" class="mdl-card mdl-shadow--2dp tarjeta" ng-show="VISTAS['imagenes'].cargar.selected" style="min-height: {{$root.altoVentana - 250}}px">
                     <!--Encabezado-->
                     <div id="imagenesCargarEncabezado">
                         <div class="div-encabezado-imagenes mdl-grid-sin-padding">

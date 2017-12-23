@@ -196,6 +196,17 @@ p{
 .mdl-textfield__error {
     font-family: 'Open Sans';
 }
+.tituloHeader{
+    font-size: 1em;
+    font-family: 'TrajanPro-Regular';
+    padding-top: 0px;
+    line-height: 1.3;
+    text-align: center;
+}
+.tituloHeader > small{
+    color: #094D7A;
+    font-size: 0.8em;
+}
 /*Home*/
 .mdl-layout__header {
     background-color: #f2f2f2;
@@ -304,6 +315,13 @@ p{
     font-family: 'Open Sans';
     font-size: 15px;
     color: #0F998F;
+    line-height: 23px;
+    height: auto;
+    width: 100%;
+    min-height: 36px;
+}
+.mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
+    color: rgba(0,0,0,.5);
 }
 .button-ia:active{
     position: relative;
@@ -412,8 +430,8 @@ p{
     font-family: 'Open Sans'
 }
 #reportesCargarFormulariosImagenes{
-    overflow-y: auto;
-    max-height: 50vh;
+    /*overflow-y: auto;
+    max-height: 50vh;*/
 }
 label input {
     display: none;/* <-- hide the default checkbox */

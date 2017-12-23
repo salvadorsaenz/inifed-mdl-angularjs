@@ -256,9 +256,11 @@
 }
 .tarjeta {
     position: relative;
-    width: 95%;
-    height: 430px;
+    width: 94%;
+    height: auto;
     margin: 25px auto;
+    margin-bottom: 25px!important;
+    padding-bottom: 25px!important;
 }
 .tarjeta-gestores {
     background-color: #e6e6e6;
@@ -400,8 +402,7 @@
 }
 .wrapperAcordion{
     overflow-y: auto;
-    max-height: 58vh;
-    height: 58vh;
+    height: auto;
     margin-top: 12px;
 }
 .iconAlert > img{
