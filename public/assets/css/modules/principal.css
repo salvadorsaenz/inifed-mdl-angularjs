@@ -102,7 +102,9 @@ a.list-group-item, button.list-group-item {
     line-height: 28px;
 }
 .closeSide {
-   padding: 5px !important; 
+    padding: 5px !important; 
+    width: 80px;
+    text-align: center;
 }
 .closeSide > a{
     color: #0F998F !important;

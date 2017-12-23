@@ -163,7 +163,7 @@ p{
     position: absolute;
 }
 .div-inicio-sesion {
-    margin-top: 40px;
+    /*margin-top: 40px;*/
 }
 .div-renglon-inputs-login {
     /*padding: 0 60px 0;*/
@@ -319,6 +319,7 @@ p{
     height: auto;
     width: 100%;
     min-height: 36px;
+    max-width: 195px;
 }
 .mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
     color: rgba(0,0,0,.5);
