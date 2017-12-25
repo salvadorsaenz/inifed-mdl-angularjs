@@ -63,7 +63,6 @@ function appModelServ(sesionesControl, $location, $log, $window) {
     };
     var logout = function(message) {
         unCacheSesion();
-//        this.limpiaModelo('logout');
 
         //mandamos al login
         $location.path('/login');
@@ -108,7 +107,7 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         return {
             id: 'home',
             desc: 'Home',
-            selected: false,
+            selected: true,
             infoObra_show: false
         };
     };
@@ -116,14 +115,20 @@ function appModelServ(sesionesControl, $location, $log, $window) {
         return {
             id: 'alertas',
             desc: 'Historial de Alertas',
-            selected: false
+            selected: false,
+            alertas: {
+                notificaciones: [],
+                totalNoAtendidas: 0
+            },
+            alertaNoVista: true
+            
         };
     };
     var getNewReportes = function() {
         return {
             id: 'reportes',
             desc: 'Gestor de Reportes',
-            selected: true,
+            selected: false,
             listado: {
                 selected: true,
                 etapaSelected: true,

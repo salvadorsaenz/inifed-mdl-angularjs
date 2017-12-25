@@ -42,7 +42,9 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 value.selected = false;
             }
         });
-
+        if (opcion == 'alertas') {
+            appModelServ.VISTAS['alertas'].alertaNoVista = false;
+        }
         appModelServ.VISTAS[opcion].selected = !appModelServ.VISTAS[opcion].selected;
         if (!appModelServ.VISTAS[opcion].selected) {
             appModelServ.VISTAS['home'].selected = true;
@@ -85,7 +87,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         appModelServ.VISTAS['imagenes'].listado.tareaSelected = false;
     };
 
-    var muestraDatosModal = function() {
+    var muestraDatosModal = function(text) {
         if (appModelServ.VISTAS['imagenes'].selected) {
             $scope.dialog.status = 'Carga exitosa';
             $scope.dialog.mensaje = 'Se añadieron ' + $scope.imagenes.cargadas
@@ -94,7 +96,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                     + appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.nombre;
         } else {
             $scope.dialog.status = 'Reporte enviado correctamente';
-            $scope.dialog.mensaje = 'Folio: ';
+            $scope.dialog.mensaje = 'Folio: ' + text;
         }
         dialog.showModal();
     };
@@ -242,7 +244,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                     var result = payload.data;
                     if (result.success) {
                         $scope.reporte = newReporte();
-                        muestraDatosModal();
+                        muestraDatosModal(result.data.folio);
                     }
                 },
                 function(errorPayload) {
@@ -277,6 +279,34 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                     $log.error('error consultaObra', errorPayload);
                 });
     };
+    
+    var consultaAlertas = function() {
+        var promise = {};
+        if (environment.getEnvironment === 'SALVADOR') {
+            var serviceItem = {
+                use: 'json'
+                , json: 'public/assets/json/Alertas_response.json'
+            };
+            promise = appServices.exec(serviceItem);
+        } else {
+            // CambiarNombreServicio
+            promise = consultarGet({idAsignacionConstructora: appModelServ.user.idAsignacionSeleccionada}, 'notificacion/lista/programa');
+        }
+
+        promise.then(
+                function(payload) {
+                    var result = payload.data;
+                    if (result.success) {
+                        appModelServ.VISTAS['alertas'].alertas = result.data;
+                        appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
+                        $log.info('obraCtrl consultaAlertas', result.data);
+                        $log.info('totalNoAtendidas', (appModelServ.VISTAS['alertas'].alertas.totalNoAtendidas > 0));
+                    }
+                },
+                function(errorPayload) {
+                    $log.error('error consultaAlertas', errorPayload);
+                });
+    };
 
     var consultaEtapas = function() {
         var promise = {};
@@ -295,7 +325,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 function(payload) {
                     var result = payload.data;
                     if (result.success) {
-                        appModelServ.VISTAS = appModelServ.getNewVISTAS();
+//                        appModelServ.VISTAS = appModelServ.getNewVISTAS();
                         appModelServ.VISTAS['reportes'].listado.etapas = result.data;
                         appModelServ.VISTAS['imagenes'].listado.etapas = result.data;
                         appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
@@ -347,7 +377,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         }
     };
     
-	var closePanel = function (i) {
+    var closePanel = function (i) {
         var acordion = document.getElementsByClassName("accordion");
         var j;
         for (j = 0; j < acordion.length; j++) {
@@ -380,6 +410,19 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         $scope.$apply();
     };
     
+    $scope.abrePanel = function(id) {
+        $log.info('accordion click', id);
+        $('.accordion').removeClass('active');
+        $('#btn_' + id).addClass('active');
+        var mh = $('#pnl_' + id).css('maxHeight');
+        $log.info('mh', mh);
+        if (mh == '0px') {
+            $('#pnl_' + id).css('maxHeight', '100%');
+        } else {
+            $('#pnl_' + id).css('maxHeight', '0px');
+        }
+    };
+    
     var init = function() {
         $('.archivo').on('change', function() {
             uploadfilesChange(this, resultBase64);
@@ -394,25 +437,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             regresarAHome();
         });
 
-        $log.info('consultaObra y consultaEtapas');
+        $log.info('consultaObra, consultaAlertas y consultaEtapas');
         consultaObra();
+        consultaAlertas();
         consultaEtapas();
-		
-		var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                //closePanel();
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = "100%";
-                }
-            });
-        };
     };
 
     init();

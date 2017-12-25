@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "data": {
+        "notificaciones": [
+            {
+                "notificacion": {
+                    "idTipo": 1,
+                    "tipo": "Alarma",
+                    "fecha": "25/12/2017",
+                    "colorTipo": "color"
+                },
+                "cct": {
+                    "cct": "20DPR2148Q",
+                    "nombre": "LUIS B. TOLEDO",
+                    "nivel": "PRIMARIA",
+                    "entidad": "OAXACA",
+                    "municipio": "EL ESPINAL",
+                    "localidad": "ASUNCIÓN IXTALTEPEC",
+                    "etapa": "1. PRELIMINARES"
+                },
+                "status": {
+                    "descripcion": "La etapa debio haber concluido el dia : 09/12/2017(5 días)",
+                    "tipo": "No atendida",
+                    "idTipo": 1
+                }
+            }, {
+                "notificacion": {
+                    "idTipo": 2,
+                    "tipo": "Alerta",
+                    "fecha": "24/12/2017",
+                    "colorTipo": "color"
+                },
+                "cct": {
+                    "cct": "17DPR0078K",
+                    "nombre": "LUIS DONALDO COLOSIO",
+                    "nivel": "SECUNDARIA",
+                    "entidad": "MORELOS",
+                    "municipio": "XOCHITEPEC",
+                    "localidad": "XOCHITEPEC",
+                    "etapa": "1. PRELIMINARES"
+                },
+                "status": {
+                    "descripcion": "La etapa debio haber concluido el dia : 09/12/2017(5 días)",
+                    "tipo": "No atendida",
+                    "idTipo": 1
+                }
+            }
+        ],
+        "totalNoAtendidas": 1
+    },
+    "code": 1,
+    "msg": "ok",
+    "recordId": 0,
+    "httpStatus": 0
+}
