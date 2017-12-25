@@ -214,7 +214,7 @@
                                         <label style="font-size: 15px;">Avance acumulado: </label>
                                     </div>
                                     <div style="float: left; width: 50%;">
-                                        <label>{{VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado}}%</label>
+                                        <label>{{sumaAcumulado()}}%</label>
                                     </div>
                                 </div>
                             </div>
@@ -403,8 +403,8 @@
                                 <span class="helper"></span>{{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
                             </div>
                             <div class="div-vertical" style="float: right;">
-                                <button ng-click="guardar();" style="color: #0F998F;"
-                                        class="mdl-button mdl-js-button mdl-js-ripple-effect">Guardar</button>
+                                <button ng-click="guardar();" class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                                        ng-disabled="!(imagenes.porSubir > 0)">Guardar</button>
                             </div>
                         </div>
                         <div class="mdl-grid-sin-padding">

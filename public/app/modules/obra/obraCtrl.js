@@ -15,6 +15,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     var newReporte = function() {
         return {
             avanceSemanal: 0,
+            avanceAcumuladoNuevo: 0,
             textoAvance: '',
             imagenesAdjuntasSelected: [false, false, false, false, false, false],
             imagenesAdjuntas: [],
@@ -30,6 +31,18 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     $scope.dialog = {
         status: 'Reporte enviado correctamente',
         mensaje: 'Folio: B20420'
+    };
+    $scope.sumaAcumulado = function() {
+        var as = $scope.reporte.avanceSemanal;
+        if (as == '') {
+            as = 0;
+        } else {
+            as = parseInt(as);
+        }
+        var pa = parseInt(appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado);
+        var sum = pa + as;
+        $scope.reporte.avanceAcumuladoNuevo = sum;
+        return sum;
     };
 
     $scope.muestraOcultaInfoObra = function() {
@@ -94,6 +107,11 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                     + ' imágenes a '
                     + appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.orden + ' '
                     + appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.nombre;
+            $scope.imagenes = {
+                porSubir: 0,
+                respondioService: 0,
+                cargadas: 0
+            };
         } else {
             $scope.dialog.status = 'Reporte enviado correctamente';
             $scope.dialog.mensaje = 'Folio: ' + text;
@@ -221,7 +239,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             idSemana: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idSemana,
             idTarea: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idTarea,
             porcentaje: $scope.reporte.avanceSemanal,
-            porcentajeAculado: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado,
+            porcentajeAculado: $scope.reporte.avanceAcumuladoNuevo,
             descripcion: $scope.reporte.textoAvance,
             usuario: appModelServ.user.idUsuario,
             imagenes: $scope.reporte.imagenesAdjuntas
@@ -269,10 +287,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         promise.then(
                 function(payload) {
                     var result = payload.data;
+//                    $log.info('obraCtrl consultaObra', result.data);
                     if (result.success) {
                         appModelServ.user.obraSeleccionada = result.data;
                         appModelServ.setVariableSesion('userInifed', appModelServ.user);
-//                        $log.info('obraCtrl consultaObra appModelServ.user', appModelServ.user);
                     }
                 },
                 function(errorPayload) {
@@ -296,11 +314,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         promise.then(
                 function(payload) {
                     var result = payload.data;
+//                    $log.info('obraCtrl consultaAlertas', result.data);
                     if (result.success) {
                         appModelServ.VISTAS['alertas'].alertas = result.data;
                         appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
-                        $log.info('obraCtrl consultaAlertas', result.data);
-                        $log.info('totalNoAtendidas', (appModelServ.VISTAS['alertas'].alertas.totalNoAtendidas > 0));
                     }
                 },
                 function(errorPayload) {
@@ -324,12 +341,11 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         promise.then(
                 function(payload) {
                     var result = payload.data;
+//                    $log.info('obraCtrl consultaEtapas result', result.data);
                     if (result.success) {
-//                        appModelServ.VISTAS = appModelServ.getNewVISTAS();
                         appModelServ.VISTAS['reportes'].listado.etapas = result.data;
                         appModelServ.VISTAS['imagenes'].listado.etapas = result.data;
                         appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
-//                        $log.info('obraCtrl consultaEtapas result', result);
                     }
                 },
                 function(errorPayload) {
@@ -375,20 +391,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 }
             };
         }
+        
+        $scope.imagenes.porSubir++;
     };
     
-    var closePanel = function (i) {
-        var acordion = document.getElementsByClassName("accordion");
-        var j;
-        for (j = 0; j < acordion.length; j++) {
-            if (j != i) {
-                acordion[j].classList.remove("active");
-                var panel = acordion[j].nextElementSibling;
-                panel.style.maxHeight = null;
-            }
-        }
-    };
-
     var regresarAHome = function() {
         if (appModelServ.VISTAS['imagenes'].selected) {
             appModelServ.VISTAS['imagenes'].listado.selected = true;
