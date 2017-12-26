@@ -27,7 +27,7 @@ function homeCtrl($scope, environment, consultarPost, consultarGet, appServices,
         } else {
             // CambiarNombreServicio
             var data = {};
-            promise = consultarPost(data, 'acceso/logout');
+            promise = consultarGet(data, 'acceso/logout');
         }
             
         promise.then(
