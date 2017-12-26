@@ -8,7 +8,7 @@
 var app = angular.module("app", ['ngRoute', 'ngMessages', 'common.services', 'common.environments']);
 
 //damos configuración de ruteo a nuestro sistema de login
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $compileProvider, $sceDelegateProvider) {
     $routeProvider
             .when("/login", {
                 controller: "loginCtrl",
@@ -31,6 +31,14 @@ app.config(function ($routeProvider) {
                 redirectTo: '/login'
             })
             ;
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|local|data|file|chrome-extension):/);
+        //environment.getUrlServer;
+        // We must whitelist the JSONP endpoint that we are using to show that we trust it
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'self',
+            'https://187.188.119.197/**',
+            'https://192.168.2.218/**'
+        ]);
 });
 
 //mientras corre la aplicación, comprobamos si el usuario tiene acceso a la ruta a la que está accediendo

@@ -35,7 +35,7 @@
             LOCALHOST: SR(218, 8080),
             DESARROLLO: SR(218, 8181),            
             OCOTEPEC: SR(212, 8083),
-            INTERNET2: SR(187, 8181)};
+            INTERNET2: SR(187, 46101)};
         var SERVER_NODE = {
             LOCALHOST: SR(187, 9011),
             DESARROLLO: SR(187, 9011),            
