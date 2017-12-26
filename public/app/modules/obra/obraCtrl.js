@@ -15,6 +15,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     var newReporte = function() {
         return {
             avanceSemanal: 0,
+            avanceAcumuladoNuevo: 0,
             textoAvance: '',
             imagenesAdjuntasSelected: [false, false, false, false, false, false],
             imagenesAdjuntas: [],
@@ -31,6 +32,18 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         status: 'Reporte enviado correctamente',
         mensaje: 'Folio: B20420'
     };
+    $scope.sumaAcumulado = function() {
+        var as = $scope.reporte.avanceSemanal;
+        if (as == '') {
+            as = 0;
+        } else {
+            as = parseInt(as);
+        }
+        var pa = parseInt(appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado);
+        var sum = pa + as;
+        $scope.reporte.avanceAcumuladoNuevo = sum;
+        return sum;
+    };
 
     $scope.muestraOcultaInfoObra = function() {
         $scope.VISTAS['home'].infoObra_show = !$scope.VISTAS['home'].infoObra_show;
@@ -42,7 +55,9 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 value.selected = false;
             }
         });
-
+        if (opcion == 'alertas') {
+            appModelServ.VISTAS['alertas'].alertaNoVista = false;
+        }
         appModelServ.VISTAS[opcion].selected = !appModelServ.VISTAS[opcion].selected;
         if (!appModelServ.VISTAS[opcion].selected) {
             appModelServ.VISTAS['home'].selected = true;
@@ -85,16 +100,21 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         appModelServ.VISTAS['imagenes'].listado.tareaSelected = false;
     };
 
-    var muestraDatosModal = function() {
+    var muestraDatosModal = function(text) {
         if (appModelServ.VISTAS['imagenes'].selected) {
             $scope.dialog.status = 'Carga exitosa';
             $scope.dialog.mensaje = 'Se añadieron ' + $scope.imagenes.cargadas
                     + ' imágenes a '
                     + appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.orden + ' '
                     + appModelServ.VISTAS['imagenes'].listado.tareaSeleccionada.nombre;
+            $scope.imagenes = {
+                porSubir: 0,
+                respondioService: 0,
+                cargadas: 0
+            };
         } else {
             $scope.dialog.status = 'Reporte enviado correctamente';
-            $scope.dialog.mensaje = 'Folio: ';
+            $scope.dialog.mensaje = 'Folio: ' + text;
         }
         dialog.showModal();
     };
@@ -219,7 +239,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             idSemana: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idSemana,
             idTarea: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idTarea,
             porcentaje: $scope.reporte.avanceSemanal,
-            porcentajeAculado: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado,
+            porcentajeAculado: $scope.reporte.avanceAcumuladoNuevo,
             descripcion: $scope.reporte.textoAvance,
             usuario: appModelServ.user.idUsuario,
             imagenes: $scope.reporte.imagenesAdjuntas
@@ -242,7 +262,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                     var result = payload.data;
                     if (result.success) {
                         $scope.reporte = newReporte();
-                        muestraDatosModal();
+                        muestraDatosModal(result.data.folio);
                     }
                 },
                 function(errorPayload) {
@@ -267,14 +287,41 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         promise.then(
                 function(payload) {
                     var result = payload.data;
+//                    $log.info('obraCtrl consultaObra', result.data);
                     if (result.success) {
                         appModelServ.user.obraSeleccionada = result.data;
                         appModelServ.setVariableSesion('userInifed', appModelServ.user);
-//                        $log.info('obraCtrl consultaObra appModelServ.user', appModelServ.user);
                     }
                 },
                 function(errorPayload) {
                     $log.error('error consultaObra', errorPayload);
+                });
+    };
+    
+    var consultaAlertas = function() {
+        var promise = {};
+        if (environment.getEnvironment === 'SALVADOR') {
+            var serviceItem = {
+                use: 'json'
+                , json: 'public/assets/json/Alertas_response.json'
+            };
+            promise = appServices.exec(serviceItem);
+        } else {
+            // CambiarNombreServicio
+            promise = consultarGet({idAsignacionConstructora: appModelServ.user.idAsignacionSeleccionada}, 'notificacion/lista/programa');
+        }
+
+        promise.then(
+                function(payload) {
+                    var result = payload.data;
+//                    $log.info('obraCtrl consultaAlertas', result.data);
+                    if (result.success) {
+                        appModelServ.VISTAS['alertas'].alertas = result.data;
+                        appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
+                    }
+                },
+                function(errorPayload) {
+                    $log.error('error consultaAlertas', errorPayload);
                 });
     };
 
@@ -294,12 +341,11 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         promise.then(
                 function(payload) {
                     var result = payload.data;
+//                    $log.info('obraCtrl consultaEtapas result', result.data);
                     if (result.success) {
-                        appModelServ.VISTAS = appModelServ.getNewVISTAS();
                         appModelServ.VISTAS['reportes'].listado.etapas = result.data;
                         appModelServ.VISTAS['imagenes'].listado.etapas = result.data;
                         appModelServ.setVariableSesion('VISTAS', appModelServ.VISTAS);
-//                        $log.info('obraCtrl consultaEtapas result', result);
                     }
                 },
                 function(errorPayload) {
@@ -345,20 +391,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
                 }
             };
         }
+        
+        $scope.imagenes.porSubir++;
     };
     
-	var closePanel = function (i) {
-        var acordion = document.getElementsByClassName("accordion");
-        var j;
-        for (j = 0; j < acordion.length; j++) {
-            if (j != i) {
-                acordion[j].classList.remove("active");
-                var panel = acordion[j].nextElementSibling;
-                panel.style.maxHeight = null;
-            }
-        }
-    };
-
     var regresarAHome = function() {
         if (appModelServ.VISTAS['imagenes'].selected) {
             appModelServ.VISTAS['imagenes'].listado.selected = true;
@@ -380,6 +416,19 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         $scope.$apply();
     };
     
+    $scope.abrePanel = function(id) {
+        $log.info('accordion click', id);
+        $('.accordion').removeClass('active');
+        $('#btn_' + id).addClass('active');
+        var mh = $('#pnl_' + id).css('maxHeight');
+        $log.info('mh', mh);
+        if (mh == '0px') {
+            $('#pnl_' + id).css('maxHeight', '100%');
+        } else {
+            $('#pnl_' + id).css('maxHeight', '0px');
+        }
+    };
+    
     var init = function() {
         $('.archivo').on('change', function() {
             uploadfilesChange(this, resultBase64);
@@ -394,25 +443,10 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             regresarAHome();
         });
 
-        $log.info('consultaObra y consultaEtapas');
+        $log.info('consultaObra, consultaAlertas y consultaEtapas');
         consultaObra();
+        consultaAlertas();
         consultaEtapas();
-		
-		var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                //closePanel();
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = "100%";
-                }
-            });
-        };
     };
 
     init();

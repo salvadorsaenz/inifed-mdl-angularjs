@@ -80,95 +80,40 @@
 
             <!--Vistas-->
 
-            <!--Home-->
-            <!--div id="home" class="obra-fondo" ng-show="VISTAS['home'].selected">
-                <div class="title div-plataforma" style="text-align: center; margin-top: {{$root.altoVentana / 2}}px">
-                    Plataforma para la Reconstrucción de la infraestructura afectada
-                </div>
-                <div class="obra-logos-centro">
-                    <img src="public/assets/images/logos/SEP_logo_2012.png" class="img-responsive sep">
-                </div>
-                <div class="obra-logos-centro">
-                    <img src="public/assets/images/logos/logo-INIFED_alt.png" class="img-responsive inifed">
-                </div>
-            </div-->
-
             <!--Alertas-->
             <div id="alertas" class="obra-fondo" ng-show="VISTAS['alertas'].selected">
                 <div class="mdl-card mdl-shadow--2dp tarjeta wrapperContentVentana" style="min-height: {{$root.altoVentana - 250}}px">
                     <h5 class="marg0">Historial de Alertas</h5>
 
                     <div class="wrapperAcordion">
-                        <button class="accordion">
-                            <div class="iconAlert">
-                                <img src="public/assets/images/svg/alertIcon.svg">
-                                <span class="circleAlert"></span>
-                            </div>
-                            <div class="labelAcordion">
-                                Aviso   14/11/2017
-                            </div>
-                        </button>
-                        <div class="panel">
-                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
-                                <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
-                                <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
-                                <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
-                                <p class="text_gray info-obra-acordion">ENTIDAD: <span>OAXACA</span></p>
-                                <p class="text_gray info-obra-acordion">MUNICIPIO: <span>EL ESPINAL</span></p>
-                                <p class="text_gray info-obra-acordion">LOCALIDAD: <span>ASUNCIÓN IXTALTEPEC</span></p>
-                                <p class="text_gray info-obra-acordion">REPORTE: <span>2.1 EXCAVACIÓN</span></p>
-                                <p class="text_red txtRl">
-                                    El reporte debió haberse enviado el día: 09/12/2017 (5 días)
-                                </p>
-                            </div>
-                        </div>
-
-                        <button class="accordion">
-                            <div class="iconAlert">
-                                <img src="public/assets/images/svg/alertIcon.svg">
-                            </div>
-                            <div class="labelAcordion">
-                                Aviso   14/11/2017
-                            </div>
-                        </button>
-                        <div class="panel">
-                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
-                                <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
-                                <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
-                                <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
-                                <p class="text_gray info-obra-acordion">ENTIDAD: <span>OAXACA</span></p>
-                                <p class="text_gray info-obra-acordion">MUNICIPIO: <span>EL ESPINAL</span></p>
-                                <p class="text_gray info-obra-acordion">LOCALIDAD: <span>ASUNCIÓN IXTALTEPEC</span></p>
-                                <p class="text_gray info-obra-acordion">REPORTE: <span>2.1 EXCAVACIÓN</span></p>
-                                <p class="text_red txtRl">
-                                    El reporte debió haberse enviado el día: 09/12/2017 (5 días)
-                                </p>
+                        
+                        <div ng-repeat="notificacion in VISTAS['alertas'].alertas.notificaciones">
+                            <button id="btn_{{notificacion.cct.cct}}" class="accordion" ng-click="abrePanel(notificacion.cct.cct);">
+                                <div class="iconAlert">
+                                    <img ng-if="notificacion.notificacion.idTipo == 1" src="public/assets/images/svg/alertIcon.svg">
+                                    <img ng-if="notificacion.notificacion.idTipo == 2" src="public/assets/images/svg/alertWarning.svg">
+                                    <span ng-if="notificacion.notificacion.idTipo == 1" class="circleAlert"></span>
+                                </div>
+                                <div class="labelAcordion">
+                                    {{notificacion.notificacion.tipo}} {{notificacion.notificacion.fecha}}
+                                </div>
+                            </button>
+                            <div id="pnl_{{notificacion.cct.cct}}" class="panel">
+                                <div style="width: 100%; height: 20%; padding: 12px 0px;">
+                                    <p class="text_gray info-obra-acordion">CCT: <span>{{notificacion.cct.cct}}</span></p>
+                                    <p class="text_gray info-obra-acordion">NOMBRE: <span>{{notificacion.cct.nombre}}</span></p>
+                                    <p class="text_gray info-obra-acordion">NIVEL: <span>{{notificacion.cct.nivel}}</span></p>
+                                    <p class="text_gray info-obra-acordion">ENTIDAD: <span>{{notificacion.cct.entidad}}</span></p>
+                                    <p class="text_gray info-obra-acordion">MUNICIPIO: <span>{{notificacion.cct.municipio}}</span></p>
+                                    <p class="text_gray info-obra-acordion">LOCALIDAD: <span>{{notificacion.cct.localidad}}</span></p>
+                                    <p class="text_gray info-obra-acordion">REPORTE: <span>{{notificacion.cct.etapa}}</span></p>
+                                    <p class="text_red txtRl">
+                                        {{notificacion.status.descripcion}}
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="accordion">
-                            <span class="iconAlert">
-                                <img src="public/assets/images/svg/alertWarning.svg">
-                            </span>
-                            <span class="labelAcordion">
-                                Aviso   14/11/2017
-                            </span>
-                        </button>
-                        <div class="panel">
-                            <div style="width: 100%; height: 20%; padding: 12px 0px;">
-                                <p class="text_gray info-obra-acordion">CCT: <span>20DPR2148Q</span></p>
-                                <p class="text_gray info-obra-acordion">NOMBRE: <span>LUIS B. TOLEDO</span></p>
-                                <p class="text_gray info-obra-acordion">NIVEL: <span>PRIMARIA</span></p>
-                                <p class="text_gray info-obra-acordion">ENTIDAD: <span>OAXACA</span></p>
-                                <p class="text_gray info-obra-acordion">MUNICIPIO: <span>EL ESPINAL</span></p>
-                                <p class="text_gray info-obra-acordion">LOCALIDAD: <span>ASUNCIÓN IXTALTEPEC</span></p>
-                                <p class="text_gray info-obra-acordion">REPORTE: <span>2.1 EXCAVACIÓN</span></p>
-                                <p class="text_warning txtRl">
-                                    El reporte debió haberse enviado el día: 09/12/2017 (5 días)
-                                </p>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -269,7 +214,7 @@
                                         <label style="font-size: 15px;">Avance acumulado: </label>
                                     </div>
                                     <div style="float: left; width: 50%;">
-                                        <label>{{VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado}}%</label>
+                                        <label>{{sumaAcumulado()}}%</label>
                                     </div>
                                 </div>
                             </div>
@@ -458,8 +403,8 @@
                                 <span class="helper"></span>{{VISTAS['imagenes'].listado.etapaSeleccionada.orden}} {{VISTAS['imagenes'].listado.etapaSeleccionada.etapa}}
                             </div>
                             <div class="div-vertical" style="float: right;">
-                                <button ng-click="guardar();" style="color: #0F998F;"
-                                        class="mdl-button mdl-js-button mdl-js-ripple-effect">Guardar</button>
+                                <button ng-click="guardar();" class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                                        ng-disabled="!(imagenes.porSubir > 0)">Guardar</button>
                             </div>
                         </div>
                         <div class="mdl-grid-sin-padding">
@@ -627,8 +572,9 @@
     <!-- Submenú Inferior 3 opciones-->
     <div class="menuBottom" style="height: 92px;">
         <div class="item alertOpt" ng-click="seleccionaVista('alertas')"
-             ng-class="{'selected': VISTAS['alertas'].selected}">
-            <!--<div class="circleIndicator">1</div>-->
+             ng-class="{'selected': VISTAS['alertas'].selected, 'active': (VISTAS['alertas'].alertas.totalNoAtendidas > 0 && VISTAS['alertas'].alertaNoVista)}">
+            <div class="circleIndicator"
+                 ng-show="VISTAS['alertas'].alertas.totalNoAtendidas > 0">{{VISTAS['alertas'].alertas.totalNoAtendidas}}</div>
             <div class="iconAlertOpet"></div>
             Historial de Alertas
         </div>
