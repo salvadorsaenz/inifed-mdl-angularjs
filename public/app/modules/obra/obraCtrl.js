@@ -239,7 +239,7 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             idSemana: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idSemana,
             idTarea: appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.idTarea,
             porcentaje: $scope.reporte.avanceSemanal,
-            porcentajeAculado: $scope.reporte.avanceAcumuladoNuevo,
+            porcentajeAcumulado: $scope.reporte.avanceAcumuladoNuevo,
             descripcion: $scope.reporte.textoAvance,
             usuario: appModelServ.user.idUsuario,
             imagenes: $scope.reporte.imagenesAdjuntas
