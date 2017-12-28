@@ -419,13 +419,14 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
     $scope.abrePanel = function(id) {
         $log.info('accordion click', id);
         $('.accordion').removeClass('active');
-        $('#btn_' + id).addClass('active');
         var mh = $('#pnl_' + id).css('maxHeight');
         $log.info('mh', mh);
         if (mh == '0px') {
             $('#pnl_' + id).css('maxHeight', '100%');
+            $('#btn_' + id).addClass('active');
         } else {
             $('#pnl_' + id).css('maxHeight', '0px');
+            $('#btn_' + id).removeClass('active');
         }
     };
     
