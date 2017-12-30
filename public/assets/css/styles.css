@@ -156,6 +156,11 @@ p{
 .div-plataforma-login {
     margin-top: 110px; 
 }
+@media (max-width: 360px){
+    .div-plataforma-login {
+        margin-top: 72px; 
+    }   
+}
 .div-plataforma-login > div {
     margin-bottom: 0px;
 }
