@@ -91,10 +91,15 @@
     height: 40px;
 }
 .menuBottom > .item{
-    padding: 2% 1%;
+    padding: 15px 5px;
     font-family: 'Open Sans';
     font-size: 0.8em;
     text-align: center;
+}
+@media (max-width: 346px){
+    .menuBottom > .item{
+        padding: 2% 1%;
+    }  
 }
 .menuBottom > .item.active{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c1272d+0,990f15+100 */
