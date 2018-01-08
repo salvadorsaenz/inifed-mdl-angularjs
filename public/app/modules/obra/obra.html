@@ -546,24 +546,28 @@
             </div>
 
             <!--Modal-->
-            <dialog class="mdl-dialog">
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone">
-                        {{dialog.status}}
+            <div id="myModal" class="modal">
+                
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--8-col mdl-cell--2-col-phone">
+                            {{dialog.status}}
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone" style="text-align: right;">
+                            <i class="material-icons">done</i>
+                        </div>
                     </div>
-                    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone" style="text-align: right;">
-                        <i class="material-icons">done</i>
+                    <div class="mdl-grid" style="font-size: 14px; padding-left: 19px;">
+                        {{dialog.mensaje}}
+                    </div>
+                    <div class="mdl-dialog__actions">
+                        <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
+                            Regresar a Obra
+                        </button>
                     </div>
                 </div>
-                <div class="mdl-grid" style="font-size: 14px; padding-left: 19px;">
-                    {{dialog.mensaje}}
-                </div>
-                <div class="mdl-dialog__actions">
-                    <button style="color: #0F998F;" class="mdl-button mdl-js-button mdl-js-ripple-effect close">
-                        Regresar a Obra
-                    </button>
-                </div>
-            </dialog>
+            </div>
 
         </div>
 

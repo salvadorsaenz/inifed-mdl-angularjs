@@ -33,15 +33,20 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
         mensaje: 'Folio: B20420'
     };
     $scope.sumaAcumulado = function() {
-        var as = $scope.reporte.avanceSemanal;
-        if (as == '') {
-            as = 0;
-        } else {
-            as = parseInt(as);
+        var as = 0, sum = 0;
+        if ($scope.reporte) {
+            var as = $scope.reporte.avanceSemanal;
+            if (as == '') {
+                as = 0;
+            } else {
+                as = parseInt(as);
+            }
+            if (appModelServ.VISTAS) {
+                var pa = parseInt(appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado);
+                var sum = pa + as;
+                $scope.reporte.avanceAcumuladoNuevo = sum;
+            }
         }
-        var pa = parseInt(appModelServ.VISTAS['reportes'].listado.tareaSeleccionada.porcentajeAcumulado);
-        var sum = pa + as;
-        $scope.reporte.avanceAcumuladoNuevo = sum;
         return sum;
     };
 
@@ -116,7 +121,8 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             $scope.dialog.status = 'Reporte enviado correctamente';
             $scope.dialog.mensaje = 'Folio: ' + text;
         }
-        dialog.showModal();
+//        dialog.showModal();
+        $('#myModal').show();
     };
 
     $scope.guardar = function() {
@@ -435,12 +441,12 @@ function obraCtrl($scope, environment, consultarPost, consultarGet, appServices,
             uploadfilesChange(this, resultBase64);
         });
 
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        $('.close').on('click', function() {
+//        if (!dialog.showModal) {
+//            dialogPolyfill.registerDialog(dialog);
+//        }
+        $('.modal').on('click', function() {
             $log.info('close');
-            dialog.close();
+            $('#myModal').hide();
             regresarAHome();
         });
 
